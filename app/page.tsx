@@ -908,7 +908,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Light theme"
                      
                   >
-                    <Sun className="w-4 h-4" />
+                    <Sun className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -922,7 +922,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Neutral theme"
                      
                   >
-                    <Monitor className="w-4 h-4" />
+                    <Monitor className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -936,7 +936,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Dark theme"
                      
                   >
-                    <Moon className="w-4 h-4" />
+                    <Moon className="w-4 h-4" aria-hidden="true" />
                   </Button>
                 </div>
 
@@ -994,7 +994,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   className={`relative px-6 py-3 font-semibold transition-all duration-300 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 dark:hover:from-blue-900/30 dark:hover:to-indigo-900/30 hover:shadow-md group`}
                   aria-label="Navigate to home section"
                 >
-                  <Crown className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
+                  <Crown className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-300 dark:to-indigo-300 bg-clip-text text-transparent">
                     Home
                   </span>
@@ -1011,7 +1011,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   className={`relative px-6 py-3 font-semibold transition-all duration-300 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/30 dark:hover:to-pink-900/30 hover:shadow-md group`}
                   aria-label="Navigate to demo video section"
                 >
-                  <PlayCircle className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform" />
+                  <PlayCircle className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="bg-gradient-to-r from-purple-700 to-pink-700 dark:from-purple-300 dark:to-pink-300 bg-clip-text text-transparent">
                     Demo
                   </span>
@@ -1028,7 +1028,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   className={`relative px-6 py-3 font-semibold transition-all duration-300 rounded-xl hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 dark:hover:from-green-900/30 dark:hover:to-emerald-900/30 hover:shadow-md group`}
                    
                 >
-                  <Gamepad2 className="w-5 h-5 mr-2 text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform" />
+                  <Gamepad2 className="w-5 h-5 mr-2 text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="bg-gradient-to-r from-green-700 to-emerald-700 dark:from-green-300 dark:to-emerald-300 bg-clip-text text-transparent">
                     Games
                   </span>
@@ -1045,7 +1045,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   className={`relative px-6 py-3 font-semibold transition-all duration-300 rounded-xl hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50 dark:hover:from-orange-900/30 dark:hover:to-yellow-900/30 hover:shadow-md group`}
                    
                 >
-                  <TrendingUp className="w-5 h-5 mr-2 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform" />
+                  <TrendingUp className="w-5 h-5 mr-2 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="bg-gradient-to-r from-orange-700 to-yellow-700 dark:from-orange-300 dark:to-yellow-300 bg-clip-text text-transparent">
                     Results
                   </span>
@@ -1082,7 +1082,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                    
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-10 transition-opacity rounded-xl"></div>
-                  <LogIn className="w-5 h-5 mr-2 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+                  <LogIn className="w-5 h-5 mr-2 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" aria-hidden="true" />
                   <span className="relative z-10 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     Sign In
                   </span>
@@ -1098,7 +1098,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                    
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity"></div>
-                  <UserPlus className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                  <UserPlus className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="relative z-10">Sign Up Free</span>
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-pulse shadow-lg" aria-hidden="true"></div>
                 </Button>
@@ -1117,7 +1117,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   }}
                   className={`p-4 rounded-xl bg-white/70 dark:bg-gray-800/70 shadow-md border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300 hover:scale-105 group`}
                 >
-                  <Crown className="w-5 h-5 mx-auto mb-2 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" />
+                  <Crown className="w-5 h-5 mx-auto mb-2 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Home
                   </span>
@@ -1131,7 +1131,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   }}
                   className={`p-4 rounded-xl bg-white/70 dark:bg-gray-800/70 shadow-md border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300 hover:scale-105 group`}
                 >
-                  <PlayCircle className="w-5 h-5 mx-auto mb-2 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform" />
+                  <PlayCircle className="w-5 h-5 mx-auto mb-2 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Demo
                   </span>
@@ -1145,7 +1145,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   }}
                   className={`p-4 rounded-xl bg-white/70 dark:bg-gray-800/70 shadow-md border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300 hover:scale-105 group`}
                 >
-                  <Gamepad2 className="w-5 h-5 mx-auto mb-2 text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform" />
+                  <Gamepad2 className="w-5 h-5 mx-auto mb-2 text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Games
                   </span>
@@ -1159,7 +1159,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   }}
                   className={`p-4 rounded-xl bg-white/70 dark:bg-gray-800/70 shadow-md border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300 hover:scale-105 group`}
                 >
-                  <TrendingUp className="w-5 h-5 mx-auto mb-2 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform" />
+                  <TrendingUp className="w-5 h-5 mx-auto mb-2 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Results
                   </span>
@@ -1176,7 +1176,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   }}
                   className={`flex-1 py-3 rounded-xl border-2 border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm font-semibold transition-all duration-300 hover:shadow-md`}
                 >
-                  <LogIn className="w-4 h-4 mr-2" />
+                  <LogIn className="w-4 h-4 mr-2" aria-hidden="true" />
                   Sign In
                 </Button>
                 <Button
@@ -1186,7 +1186,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   }}
                   className={`flex-1 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105`}
                 >
-                  <UserPlus className="w-4 h-4 mr-2" />
+                  <UserPlus className="w-4 h-4 mr-2" aria-hidden="true" />
                   Sign Up Free
                 </Button>
               </div>
@@ -1213,7 +1213,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 role="banner"
                 aria-label="#1 Academic English Gaming Platform"
               >
-                <Crown className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                <Crown className="w-5 h-5 text-purple-600 dark:text-purple-400" aria-hidden="true" />
                 <span className="text-sm font-semibold text-purple-800 dark:text-purple-300">
                   #1 Academic English Gaming Platform
                 </span>
@@ -1231,8 +1231,9 @@ Research indicates that students who engage with AI-enhanced learning platforms 
             <p
               className={`text-xl md:text-2xl ${themeClasses.textSecondary} mb-6 max-w-4xl mx-auto leading-relaxed`}
                
+              role="text"
             >
-              🎓 <strong>Transform your university English skills</strong> with
+              🎓 <strong role="text">Transform your university English skills</strong> with
               the world's first gamified academic English platform. Join
               thousands of students who've already improved their IELTS, TOEFL,
               and university performance!
@@ -1505,11 +1506,11 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                    
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mr-3">
-                    <Users className="w-6 h-6 text-white" />
+                    <Users className="w-6 h-6 text-white" aria-hidden="true" />
                   </div>
                   <div>
-                    <p className={`text-xl font-bold ${themeClasses.text}`}>
-                      Join <span className="text-green-600">10,000+</span>{" "}
+                    <p className={`text-xl font-bold ${themeClasses.text}`} role="text">
+                      Join <span className="text-green-600" role="text">10,000+</span>{" "}
                       students
                     </p>
                     <p className={`text-sm ${themeClasses.textSecondary}`}>
@@ -1629,11 +1630,11 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 >
                   <div className="flex items-center space-x-3">
                     <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-                      <UserPlus className="w-4 h-4" />
+                      <UserPlus className="w-4 h-4" aria-hidden="true" />
                     </div>
-                    <span>Start Your Journey</span>
+                    <span role="text">Start Your Journey</span>
                     <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center animate-pulse">
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4" aria-hidden="true" />
                     </div>
                   </div>
                 </Button>
@@ -1661,8 +1662,8 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                    
                 >
                   <div className="flex items-center space-x-3">
-                    <LogIn className="w-5 h-5" />
-                    <span>Sign In</span>
+                    <LogIn className="w-5 h-5" aria-hidden="true" />
+                    <span role="text">Sign In</span>
                   </div>
                 </Button>
               </div>
@@ -2359,7 +2360,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                      
                   >
-                    <UserPlus className="w-5 h-5 mr-2" />
+                    <UserPlus className="w-5 h-5 mr-2" aria-hidden="true" />
                     Get Started Free
                   </Button>
                   <Button
@@ -2372,7 +2373,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     className={`${themeClasses.border} ${themeClasses.text} hover:bg-gray-50 dark:hover:bg-gray-800 px-8 py-4 text-lg font-semibold transition-all duration-300`}
                      
                   >
-                    <LogIn className="w-5 h-5 mr-2" />
+                    <LogIn className="w-5 h-5 mr-2" aria-hidden="true" />
                     Sign In
                   </Button>
                 </div>
@@ -3005,7 +3006,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Light theme"
                      
                   >
-                    <Sun className="w-4 h-4" />
+                    <Sun className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -3019,7 +3020,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Neutral theme"
                      
                   >
-                    <Monitor className="w-4 h-4" />
+                    <Monitor className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -3031,7 +3032,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Dark theme"
                      
                   >
-                    <Moon className="w-4 h-4" />
+                    <Moon className="w-4 h-4" aria-hidden="true" />
                   </Button>
                 </div>
 
@@ -3343,7 +3344,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Light theme"
                      
                   >
-                    <Sun className="w-4 h-4" />
+                    <Sun className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -3357,7 +3358,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Neutral theme"
                      
                   >
-                    <Monitor className="w-4 h-4" />
+                    <Monitor className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -3369,7 +3370,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Dark theme"
                      
                   >
-                    <Moon className="w-4 h-4" />
+                    <Moon className="w-4 h-4" aria-hidden="true" />
                   </Button>
                 </div>
 
@@ -3665,7 +3666,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Light theme"
                      
                   >
-                    <Sun className="w-4 h-4" />
+                    <Sun className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -3679,7 +3680,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Neutral theme"
                      
                   >
-                    <Monitor className="w-4 h-4" />
+                    <Monitor className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -3691,7 +3692,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Dark theme"
                      
                   >
-                    <Moon className="w-4 h-4" />
+                    <Moon className="w-4 h-4" aria-hidden="true" />
                   </Button>
                 </div>
 
@@ -3900,7 +3901,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Light theme"
                      
                   >
-                    <Sun className="w-4 h-4" />
+                    <Sun className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -3914,7 +3915,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Neutral theme"
                      
                   >
-                    <Monitor className="w-4 h-4" />
+                    <Monitor className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -3926,7 +3927,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Dark theme"
                      
                   >
-                    <Moon className="w-4 h-4" />
+                    <Moon className="w-4 h-4" aria-hidden="true" />
                   </Button>
                 </div>
 
@@ -4172,7 +4173,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Light theme"
                      
                   >
-                    <Sun className="w-4 h-4" />
+                    <Sun className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -4186,7 +4187,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Neutral theme"
                      
                   >
-                    <Monitor className="w-4 h-4" />
+                    <Monitor className="w-4 h-4" aria-hidden="true" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -4198,7 +4199,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     aria-label="Dark theme"
                      
                   >
-                    <Moon className="w-4 h-4" />
+                    <Moon className="w-4 h-4" aria-hidden="true" />
                   </Button>
                 </div>
 
@@ -4522,7 +4523,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   aria-label="Light theme"
                    
                 >
-                  <Sun className="w-4 h-4" />
+                  <Sun className="w-4 h-4" aria-hidden="true" />
                 </Button>
                 <Button
                   variant="ghost"
@@ -4536,7 +4537,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   aria-label="Neutral theme"
                    
                 >
-                  <Monitor className="w-4 h-4" />
+                  <Monitor className="w-4 h-4" aria-hidden="true" />
                 </Button>
                 <Button
                   variant="ghost"
@@ -4548,7 +4549,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   aria-label="Dark theme"
                    
                 >
-                  <Moon className="w-4 h-4" />
+                  <Moon className="w-4 h-4" aria-hidden="true" />
                 </Button>
               </div>
 
