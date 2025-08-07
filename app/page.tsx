@@ -2088,7 +2088,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     className="mt-4 flex items-center justify-center space-x-2 text-sm text-green-600 dark:text-green-400"
                      
                   >
-                    <CheckCircle className="w-4 h-4" />
+                    <CheckCircle className="w-4 h-4" aria-hidden="true" />
                     <span 
                       className="font-semibold"
                        
@@ -2719,9 +2719,9 @@ Research indicates that students who engage with AI-enhanced learning platforms 
             <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <Gamepad2 className="w-8 h-8 text-white" />
             </div>
-            <CardTitle className={`text-2xl font-bold ${themeClasses.text}`}>
+            <h1 className={`text-2xl font-bold ${themeClasses.text}`}>
               FluentForce
-            </CardTitle>
+            </h1>
             <CardDescription className={themeClasses.textSecondary}>
               {isLogin
                 ? "Welcome back! Sign in to continue your learning journey."
@@ -3140,12 +3140,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     {question.difficulty.toUpperCase()}
                   </Badge>
                 </div>
-                <CardTitle
+                <h2
                   className={`text-3xl font-bold mb-4 ${themeClasses.text}`}
-                   
+                  id="vocabulary-question-word"
                 >
                   {question.word}
-                </CardTitle>
+                </h2>
                 <CardDescription
                   className={`text-lg ${themeClasses.textSecondary} italic`}
                    
@@ -3419,12 +3419,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
             className={`${themeClasses.cardBg} ${themeClasses.border} shadow-lg`}
           >
             <CardHeader className="text-center">
-              <CardTitle
+              <h2
                 className={`text-2xl font-bold mb-4 ${themeClasses.text}`}
-                 
+                id="listening-lecture-title"
               >
                 Listen to the Academic Lecture
-              </CardTitle>
+              </h2>
               <CardDescription
                 className={themeClasses.textSecondary}
                  
@@ -3730,12 +3730,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
               >
                 <Zap className="w-8 h-8 text-white" />
               </div>
-              <CardTitle
+              <h2
                 className={`text-2xl font-bold mb-2 ${themeClasses.text}`}
-                 
+                id="grammar-challenge-title"
               >
                 Grammar Challenge
-              </CardTitle>
+              </h2>
               <Badge className="bg-gray-700 text-white mb-4">
                 {question.rule}
               </Badge>
@@ -3956,12 +3956,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
               className={`${themeClasses.cardBg} ${themeClasses.border} shadow-lg h-fit`}
             >
               <CardHeader>
-                <CardTitle
+                <h2
                   className={`text-xl font-bold ${themeClasses.text}`}
-                   
+                  id="reading-passage-title"
                 >
                   {readingPassage.title}
-                </CardTitle>
+                </h2>
                 <CardDescription
                   className={themeClasses.textSecondary}
                    
@@ -3988,12 +3988,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
               className={`${themeClasses.cardBg} ${themeClasses.border} shadow-lg`}
             >
               <CardHeader>
-                <CardTitle
+                <h3
                   className={`text-lg font-bold ${themeClasses.text}`}
-                   
+                  id="reading-comprehension-question"
                 >
                   Comprehension Question
-                </CardTitle>
+                </h3>
                 <Progress
                   value={
                     ((gameState.currentQuestion + 1) /
@@ -4244,12 +4244,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
               className={`${themeClasses.cardBg} ${themeClasses.border} shadow-lg`}
             >
               <CardHeader>
-                <CardTitle
+                <h2
                   className={`text-lg font-bold ${themeClasses.text}`}
-                   
+                  id="writing-essay-prompt"
                 >
                   Essay Prompt
-                </CardTitle>
+                </h2>
                 <Badge className="bg-gray-700 text-white w-fit">
                   Academic Essay
                 </Badge>
@@ -4322,12 +4322,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
               >
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle
+                    <h3
                       className={`text-lg font-bold ${themeClasses.text}`}
-                       
+                      id="essay-writing-area"
                     >
                       Your Essay
-                    </CardTitle>
+                    </h3>
                     <div className="flex items-center space-x-2">
                       <Button
                         variant="ghost"
@@ -4648,7 +4648,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
             }`}
           >
             <CardHeader>
-              <CardTitle
+              <h2
                 className={`flex items-center space-x-2 ${
                   theme === "dark"
                     ? "text-gray-100"
@@ -4656,10 +4656,11 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     ? "text-gray-900"
                     : "text-gray-900"
                 }`}
+                id="help-accessibility-title"
               >
-                <HelpCircle className="w-5 h-5" />
+                <HelpCircle className="w-5 h-5" aria-hidden="true" />
                 <span>Help & Accessibility</span>
-              </CardTitle>
+              </h2>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
