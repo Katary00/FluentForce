@@ -854,8 +854,8 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                       window.scrollTo({ top: 0, behavior: "smooth" })
                     }
                   >
-                    <Gamepad2 className="w-7 h-7 text-white" />
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-full animate-pulse"></div>
+                    <Gamepad2 className="w-7 h-7 text-white" aria-hidden="true" />
+                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-full animate-pulse" aria-hidden="true"></div>
                   </button>
                 </div>
                 <div className="flex flex-col">
@@ -888,7 +888,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   role="status"
                   aria-label="50K+ Active Students"
                 >
-                  <Users className="w-4 h-4 text-green-600 dark:text-green-400" />
+                  <Users className="w-4 h-4 text-green-600 dark:text-green-400" aria-hidden="true" />
                   <span className="text-sm font-semibold text-green-700 dark:text-green-300">
                     50K+ Active Students
                   </span>
@@ -948,7 +948,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   aria-label="Help and accessibility options"
                    
                 >
-                  <HelpCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  <HelpCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" aria-hidden="true" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-bounce"></div>
                 </Button>
 
@@ -1100,7 +1100,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity"></div>
                   <UserPlus className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   <span className="relative z-10">Sign Up Free</span>
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-pulse shadow-lg"></div>
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-pulse shadow-lg" aria-hidden="true"></div>
                 </Button>
               </div>
             </div>
@@ -1203,8 +1203,8 @@ Research indicates that students who engage with AI-enhanced learning platforms 
           <section
             id="hero-section"
             className="text-center mb-16"
-            role="main"
-            aria-label="Main hero section with platform introduction"
+            role="region"
+            aria-labelledby="hero-heading"
           >
             <div className="mb-6">
               <div
@@ -1221,6 +1221,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
             </div>
 
             <h1
+              id="hero-heading"
               className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
                
             >
@@ -1262,8 +1263,8 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   </span>{" "}
                   • <span className="text-blue-600 font-medium">Listening</span>{" "}
                   • <span className="text-indigo-600 font-medium">Grammar</span>{" "}
-                  • <span className="text-teal-600 font-medium">Reading</span> •{" "}
-                  <span className="text-green-600 font-medium">Writing</span>
+                  • <span className="text-teal-800 dark:text-teal-300 font-medium">Reading</span> •{" "}
+                  <span className="text-green-800 dark:text-green-300 font-medium">Writing</span>
                 </p>
               </div>
 
@@ -1285,10 +1286,10 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   className={`text-sm ${themeClasses.textSecondary} text-center`}
                    
                 >
-                  <span className="text-yellow-600 font-medium">XP System</span>{" "}
-                  • <span className="text-orange-600 font-medium">Levels</span>{" "}
-                  • <span className="text-red-500 font-medium">Streaks</span> •{" "}
-                  <span className="text-green-600 font-medium">
+                  <span className="text-yellow-800 dark:text-yellow-300 font-medium">XP System</span>{" "}
+                  • <span className="text-orange-800 dark:text-orange-300 font-medium">Levels</span>{" "}
+                  • <span className="text-red-700 dark:text-red-300 font-medium">Streaks</span> •{" "}
+                  <span className="text-green-800 dark:text-green-300 font-medium">
                     Achievements
                   </span>
                 </p>
@@ -1319,11 +1320,11 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     Immediate Feedback
                   </span>{" "}
                   •{" "}
-                  <span className="text-cyan-600 font-medium">
+                  <span className="text-cyan-800 dark:text-cyan-300 font-medium">
                     Adaptive Learning
                   </span>{" "}
                   •{" "}
-                  <span className="text-indigo-600 font-medium">
+                  <span className="text-indigo-800 dark:text-indigo-300 font-medium">
                     Smart Analytics
                   </span>
                 </p>
@@ -1520,7 +1521,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6">
                   <div 
                     className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-purple-50 hover:to-purple-100 dark:hover:from-purple-900/10 dark:hover:to-purple-800/10 transition-all duration-300"
-                     
+                    tabIndex={0}
                     role="button"
                     aria-label="Oxford University"
                   >
@@ -1534,7 +1535,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
 
                   <div 
                     className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-900/10 dark:hover:to-blue-800/10 transition-all duration-300"
-                     
+                    tabIndex={0}
                     role="button"
                     aria-label="Cambridge University"
                   >
@@ -1548,7 +1549,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
 
                   <div 
                     className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-red-50 hover:to-red-100 dark:hover:from-red-900/10 dark:hover:to-red-800/10 transition-all duration-300"
-                     
+                    tabIndex={0}
                     role="button"
                     aria-label="Harvard University"
                   >
@@ -1562,7 +1563,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
 
                   <div 
                     className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100 dark:hover:from-green-900/10 dark:hover:to-green-800/10 transition-all duration-300"
-                     
+                    tabIndex={0}
                     role="button"
                     aria-label="Stanford University"
                   >
@@ -1576,7 +1577,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
 
                   <div 
                     className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-indigo-100 dark:hover:from-indigo-900/10 dark:hover:to-indigo-800/10 transition-all duration-300"
-                     
+                    tabIndex={0}
                     role="button"
                     aria-label="MIT University"
                   >
@@ -1904,7 +1905,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
                       <div 
                         className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-purple-50 hover:to-purple-100 dark:hover:from-purple-900/20 dark:hover:to-purple-800/20 transition-all duration-300 cursor-pointer"
-                         
+                        tabIndex={0}
                         role="button"
                         aria-label="Vocabulary game - Master Complex Terms"
                       >
@@ -1926,7 +1927,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                       </div>
                       <div 
                         className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-900/20 dark:hover:to-blue-800/20 transition-all duration-300 cursor-pointer"
-                         
+                        tabIndex={0}
                         role="button"
                         aria-label="Listening game - Academic Lectures"
                       >
@@ -1948,7 +1949,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                       </div>
                       <div 
                         className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-indigo-50 hover:to-indigo-100 dark:hover:from-indigo-900/20 dark:hover:to-indigo-800/20 transition-all duration-300 cursor-pointer"
-                         
+                        tabIndex={0}
                         role="button"
                         aria-label="Grammar game - Advanced Structures"
                       >
@@ -1970,7 +1971,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                       </div>
                       <div 
                         className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-teal-50 hover:to-teal-100 dark:hover:from-teal-900/20 dark:hover:to-teal-800/20 transition-all duration-300 cursor-pointer"
-                         
+                        tabIndex={0}
                         role="button"
                         aria-label="Reading game - Complex Texts"
                       >
@@ -1992,7 +1993,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                       </div>
                       <div 
                         className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100 dark:hover:from-green-900/20 dark:hover:to-green-800/20 transition-all duration-300 cursor-pointer"
-                         
+                        tabIndex={0}
                         role="button"
                         aria-label="Writing game - Academic Essays"
                       >
@@ -2717,7 +2718,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
               Back
             </Button>
             <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Gamepad2 className="w-8 h-8 text-white" />
+              <Gamepad2 className="w-8 h-8 text-white" aria-hidden="true" />
             </div>
             <h1 className={`text-2xl font-bold ${themeClasses.text}`}>
               FluentForce
@@ -3728,7 +3729,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
               <div
                 className={`w-16 h-16 ${themeClasses.accent} rounded-full flex items-center justify-center mx-auto mb-4`}
               >
-                <Zap className="w-8 h-8 text-white" />
+                <Zap className="w-8 h-8 text-white" aria-hidden="true" />
               </div>
               <h2
                 className={`text-2xl font-bold mb-2 ${themeClasses.text}`}
@@ -4781,7 +4782,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
           >
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Brain className="w-8 h-8 text-white" />
+                <Brain className="w-8 h-8 text-white" aria-hidden="true" />
               </div>
               <CardTitle
                 className={`text-xl font-bold ${
@@ -4853,7 +4854,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
           >
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Headphones className="w-8 h-8 text-white" />
+                <Headphones className="w-8 h-8 text-white" aria-hidden="true" />
               </div>
               <CardTitle
                 className={`text-xl font-bold ${
@@ -4925,7 +4926,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
           >
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <PenTool className="w-8 h-8 text-white" />
+                <PenTool className="w-8 h-8 text-white" aria-hidden="true" />
               </div>
               <CardTitle
                 className={`text-xl font-bold ${
@@ -4996,7 +4997,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
           >
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Target className="w-8 h-8 text-white" />
+                <Target className="w-8 h-8 text-white" aria-hidden="true" />
               </div>
               <CardTitle
                 className={`text-xl font-bold ${
@@ -5067,7 +5068,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
           >
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="w-8 h-8 text-white" />
+                <BookOpen className="w-8 h-8 text-white" aria-hidden="true" />
               </div>
               <CardTitle
                 className={`text-xl font-bold ${
@@ -5202,7 +5203,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3"
                 aria-hidden="true"
               >
-                <Sparkles className="w-8 h-8 text-white" />
+                <Sparkles className="w-8 h-8 text-white" aria-hidden="true" />
               </div>
               <h3
                 className="font-semibold text-lg"
@@ -5229,7 +5230,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3"
                 aria-hidden="true"
               >
-                <CheckCircle className="w-8 h-8 text-white" />
+                <CheckCircle className="w-8 h-8 text-white" aria-hidden="true" />
               </div>
               <h3
                 className="font-semibold text-lg"
@@ -5256,7 +5257,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-3"
                 aria-hidden="true"
               >
-                <Flame className="w-8 h-8 text-white" />
+                <Flame className="w-8 h-8 text-white" aria-hidden="true" />
               </div>
               <h3
                 className="font-semibold text-lg"
