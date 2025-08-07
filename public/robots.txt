@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tu-sitio-web.netlify.app/sitemap.xml
+
+# Disallow certain paths if needed
+# Disallow: /admin/
+# Disallow: /private/

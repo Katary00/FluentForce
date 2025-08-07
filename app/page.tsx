@@ -844,11 +844,13 @@ Research indicates that students who engage with AI-enhanced learning platforms 
               {/* Enhanced Logo Section */}
               <div className="flex items-center space-x-4">
                 <div className="relative group">
-                  <button 
+                  <button
                     className="w-12 h-12 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     tabIndex={1}
                     aria-label="FluentForce logo - Ir al inicio"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
                   >
                     <Gamepad2 className="w-7 h-7 text-white" />
                     <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-full animate-pulse"></div>
@@ -859,12 +861,17 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
                     tabIndex={2}
                     aria-label="FluentForce - Plataforma de Inglés Académico"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
                   >
                     FluentForce
                   </button>
                   <p
-                    className={`text-xs ${themeClasses.textSecondary} font-medium tracking-wide`}
+                    className={`text-xs ${themeClasses.textSecondary} font-medium tracking-wide cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded`}
+                    tabIndex={3}
+                    role="text"
+                    aria-label="Academic English Gaming Platform - Plataforma de juegos para inglés académico"
                   >
                     Academic English Gaming Platform
                   </p>
@@ -874,9 +881,8 @@ Research indicates that students who engage with AI-enhanced learning platforms 
               {/* Quick Actions & Theme Section */}
               <div className="flex items-center space-x-3">
                 {/* Quick Stats Badge */}
-                <div 
+                <div
                   className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 px-4 py-2 rounded-full border border-green-200 dark:border-green-700"
-                  tabIndex={3}
                   role="status"
                   aria-label="50K+ Active Students"
                 >
@@ -1198,7 +1204,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
             role="banner"
           >
             <div className="mb-6">
-              <div 
+              <div
                 className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 px-4 py-2 rounded-full mb-4"
                 tabIndex={14}
                 role="banner"
@@ -1246,6 +1252,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 </div>
                 <p
                   className={`text-sm ${themeClasses.textSecondary} text-center`}
+                  tabIndex={18}
                 >
                   <span className="text-purple-600 font-medium">
                     Vocabulary
@@ -1259,7 +1266,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
 
               <div
                 className={`${themeClasses.cardBg} ${themeClasses.border} rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-l-4 border-l-yellow-500`}
-                tabIndex={18}
+                tabIndex={19}
                 role="region"
                 aria-label="Real Progress"
               >
@@ -1273,6 +1280,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 </div>
                 <p
                   className={`text-sm ${themeClasses.textSecondary} text-center`}
+                  tabIndex={20}
                 >
                   <span className="text-yellow-600 font-medium">XP System</span>{" "}
                   • <span className="text-orange-600 font-medium">Levels</span>{" "}
@@ -1285,7 +1293,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
 
               <div
                 className={`${themeClasses.cardBg} ${themeClasses.border} rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-l-4 border-l-blue-500`}
-                tabIndex={19}
+                tabIndex={21}
                 role="region"
                 aria-label="Instant Results"
               >
@@ -1293,12 +1301,16 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mr-3">
                     <Zap className="w-6 h-6 text-white" />
                   </div>
-                  <span className="font-bold text-lg bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                  <span 
+                    className="font-bold text-lg bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"
+                    tabIndex={22}
+                  >
                     Instant Results
                   </span>
                 </div>
                 <p
                   className={`text-sm ${themeClasses.textSecondary} text-center`}
+                  tabIndex={23}
                 >
                   <span className="text-blue-600 font-medium">
                     Immediate Feedback
@@ -1318,18 +1330,31 @@ Research indicates that students who engage with AI-enhanced learning platforms 
             {/* What Makes Us Unique */}
             <div
               className={`${themeClasses.cardBg} ${themeClasses.border} rounded-2xl p-8 mb-8 max-w-5xl mx-auto shadow-2xl border-t-4 border-t-gradient-to-r from-purple-500 to-blue-500`}
+              tabIndex={24}
+              role="region"
+              aria-label="What Makes Us Unique"
             >
               <div className="text-center mb-6">
-                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/20 dark:to-blue-900/20 px-4 py-2 rounded-full mb-4">
+                <div 
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/20 dark:to-blue-900/20 px-4 py-2 rounded-full mb-4"
+                  tabIndex={24}
+                  role="banner"
+                >
                   <Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                   <span className="text-sm font-semibold text-purple-800 dark:text-purple-300">
                     What Makes Us Unique
                   </span>
                 </div>
-                <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                <h3 
+                  className="text-3xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent"
+                  tabIndex={25}
+                >
                   🚀 The FluentForce Advantage
                 </h3>
-                <p className={`text-lg ${themeClasses.textSecondary}`}>
+                <p 
+                  className={`text-lg ${themeClasses.textSecondary}`}
+                  tabIndex={26}
+                >
                   The only platform that combines academic rigor with gaming
                   engagement
                 </p>
@@ -1338,8 +1363,14 @@ Research indicates that students who engage with AI-enhanced learning platforms 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div
                   className={`${themeClasses.cardBg} ${themeClasses.border} rounded-xl p-6 border-l-4 border-l-purple-500 hover:shadow-lg transition-all duration-300`}
+                  tabIndex={27}
+                  role="region"
+                  aria-label="Academic Excellence"
                 >
-                  <h4 className="font-bold text-xl mb-4 flex items-center">
+                  <h4 
+                    className="font-bold text-xl mb-4 flex items-center"
+                    tabIndex={27}
+                  >
                     <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
                       <Brain className="w-5 h-5 text-white" />
                     </div>
@@ -1350,25 +1381,37 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                      <span className={`text-sm ${themeClasses.text}`}>
+                      <span 
+                        className={`text-sm ${themeClasses.text}`}
+                        tabIndex={28}
+                      >
                         University-level vocabulary (IELTS 6.5-8.0)
                       </span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className={`text-sm ${themeClasses.text}`}>
+                      <span 
+                        className={`text-sm ${themeClasses.text}`}
+                        tabIndex={29}
+                      >
                         Academic writing skills for essays & research
                       </span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                      <span className={`text-sm ${themeClasses.text}`}>
+                      <span 
+                        className={`text-sm ${themeClasses.text}`}
+                        tabIndex={30}
+                      >
                         Complex grammar structures for formal English
                       </span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className={`text-sm ${themeClasses.text}`}>
+                      <span 
+                        className={`text-sm ${themeClasses.text}`}
+                        tabIndex={31}
+                      >
                         Listening comprehension for lectures & seminars
                       </span>
                     </div>
@@ -1377,8 +1420,14 @@ Research indicates that students who engage with AI-enhanced learning platforms 
 
                 <div
                   className={`${themeClasses.cardBg} ${themeClasses.border} rounded-xl p-6 border-l-4 border-l-blue-500 hover:shadow-lg transition-all duration-300`}
+                  tabIndex={32}
+                  role="region"
+                  aria-label="Gaming Innovation"
                 >
-                  <h4 className="font-bold text-xl mb-4 flex items-center">
+                  <h4 
+                    className="font-bold text-xl mb-4 flex items-center"
+                    tabIndex={32}
+                  >
                     <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mr-3">
                       <Sparkles className="w-5 h-5 text-white" />
                     </div>
@@ -1389,25 +1438,37 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                      <span className={`text-sm ${themeClasses.text}`}>
+                      <span 
+                        className={`text-sm ${themeClasses.text}`}
+                        tabIndex={33}
+                      >
                         Competitive scoring system with streaks
                       </span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                      <span className={`text-sm ${themeClasses.text}`}>
+                      <span 
+                        className={`text-sm ${themeClasses.text}`}
+                        tabIndex={34}
+                      >
                         Progressive difficulty that adapts to you
                       </span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <span className={`text-sm ${themeClasses.text}`}>
+                      <span 
+                        className={`text-sm ${themeClasses.text}`}
+                        tabIndex={35}
+                      >
                         Achievement badges & level progression
                       </span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
-                      <span className={`text-sm ${themeClasses.text}`}>
+                      <span 
+                        className={`text-sm ${themeClasses.text}`}
+                        tabIndex={36}
+                      >
                         Study habits that actually stick!
                       </span>
                     </div>
@@ -1415,13 +1476,27 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 </div>
               </div>
             </div>
+          </section>
 
+          {/* Social Proof Section */}
+          <section
+            id="social-proof-section"
+            className="mb-16"
+            role="region"
+            aria-labelledby="social-proof-heading"
+          >
             {/* Social Proof */}
             <div
               className={`${themeClasses.cardBg} ${themeClasses.border} rounded-xl p-6 mb-8 shadow-lg border-t-4 border-t-gradient-to-r from-green-500 to-teal-500`}
+              tabIndex={37}
+              role="region"
+              aria-label="Join 10,000+ students from top universities worldwide"
             >
               <div className="text-center">
-                <div className="flex items-center justify-center mb-4">
+                <div 
+                  className="flex items-center justify-center mb-4"
+                  tabIndex={38}
+                >
                   <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mr-3">
                     <Users className="w-6 h-6 text-white" />
                   </div>
@@ -1437,7 +1512,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6">
-                  <div className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-purple-50 hover:to-purple-100 dark:hover:from-purple-900/10 dark:hover:to-purple-800/10 transition-all duration-300">
+                  <div 
+                    className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-purple-50 hover:to-purple-100 dark:hover:from-purple-900/10 dark:hover:to-purple-800/10 transition-all duration-300"
+                    tabIndex={39}
+                    role="button"
+                    aria-label="Oxford University"
+                  >
                     <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
                       <span className="text-white text-xs font-bold">O</span>
                     </div>
@@ -1446,7 +1526,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     </span>
                   </div>
 
-                  <div className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-900/10 dark:hover:to-blue-800/10 transition-all duration-300">
+                  <div 
+                    className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-900/10 dark:hover:to-blue-800/10 transition-all duration-300"
+                    tabIndex={40}
+                    role="button"
+                    aria-label="Cambridge University"
+                  >
                     <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
                       <span className="text-white text-xs font-bold">C</span>
                     </div>
@@ -1455,7 +1540,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     </span>
                   </div>
 
-                  <div className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-red-50 hover:to-red-100 dark:hover:from-red-900/10 dark:hover:to-red-800/10 transition-all duration-300">
+                  <div 
+                    className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-red-50 hover:to-red-100 dark:hover:from-red-900/10 dark:hover:to-red-800/10 transition-all duration-300"
+                    tabIndex={41}
+                    role="button"
+                    aria-label="Harvard University"
+                  >
                     <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
                       <span className="text-white text-xs font-bold">H</span>
                     </div>
@@ -1464,7 +1554,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     </span>
                   </div>
 
-                  <div className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100 dark:hover:from-green-900/10 dark:hover:to-green-800/10 transition-all duration-300">
+                  <div 
+                    className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100 dark:hover:from-green-900/10 dark:hover:to-green-800/10 transition-all duration-300"
+                    tabIndex={42}
+                    role="button"
+                    aria-label="Stanford University"
+                  >
                     <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
                       <span className="text-white text-xs font-bold">S</span>
                     </div>
@@ -1473,7 +1568,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     </span>
                   </div>
 
-                  <div className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-indigo-100 dark:hover:from-indigo-900/10 dark:hover:to-indigo-800/10 transition-all duration-300">
+                  <div 
+                    className="flex flex-col items-center space-y-2 p-3 rounded-lg hover:bg-gradient-to-br hover:from-indigo-50 hover:to-indigo-100 dark:hover:from-indigo-900/10 dark:hover:to-indigo-800/10 transition-all duration-300"
+                    tabIndex={43}
+                    role="button"
+                    aria-label="MIT University"
+                  >
                     <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center">
                       <span className="text-white text-xs font-bold">M</span>
                     </div>
@@ -1483,7 +1583,12 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   </div>
                 </div>
 
-                <div className="flex items-center justify-center mt-6 space-x-2">
+                <div 
+                  className="flex items-center justify-center mt-6 space-x-2"
+                  tabIndex={44}
+                  role="text"
+                  aria-label="And thousands more from 200+ universities"
+                >
                   <div className="flex -space-x-2">
                     <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full border-2 border-white dark:border-gray-800"></div>
                     <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full border-2 border-white dark:border-gray-800"></div>
@@ -1513,7 +1618,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   size="lg"
                   className="relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 text-xl font-bold shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 rounded-xl border border-transparent hover:border-purple-300/50"
                   aria-describedby="signup-description"
-                  tabIndex={8}
+                  tabIndex={45}
                 >
                   <div className="flex items-center space-x-3">
                     <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
@@ -1546,7 +1651,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                       : "hover:bg-gradient-to-r hover:from-gray-50 hover:to-white border-gray-300 hover:border-purple-500"
                   } px-10 py-5 text-xl font-semibold transition-all duration-300 border-2 rounded-xl hover:shadow-lg hover:scale-105`}
                   aria-describedby="signin-description"
-                  tabIndex={9}
+                  tabIndex={46}
                 >
                   <div className="flex items-center space-x-3">
                     <LogIn className="w-5 h-5" />
@@ -1570,7 +1675,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
             <h2
               id="video-heading"
               className="text-3xl font-bold text-center mb-8"
-              tabIndex={10}
+              tabIndex={38}
             >
               Welcome to Your Learning Adventure
             </h2>
@@ -1586,7 +1691,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     poster="/english-learning-thumbnail.png"
                     aria-describedby="video-description"
                     aria-label="FluentForce introduction video - Learn academic English through interactive games"
-                    tabIndex={11}
+                    tabIndex={39}
                     role="application"
                     onTimeUpdate={(e) => {
                       const video = e.target as HTMLVideoElement;
@@ -1636,7 +1741,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                         aria-label={
                           videoState.isPlaying ? "Pause video" : "Play video"
                         }
-                        tabIndex={12}
+                        tabIndex={40}
                       >
                         {videoState.isPlaying ? (
                           <Pause className="w-5 h-5" />
@@ -1701,7 +1806,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                           onClick={toggleMute}
                           className="text-white hover:bg-white/20"
                           aria-label={videoState.isMuted ? "Unmute" : "Mute"}
-                          tabIndex={13}
+                          tabIndex={41}
                         >
                           {videoState.isMuted ? (
                             <VolumeOff className="w-4 h-4" />
@@ -1722,7 +1827,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                           }
                           className="w-16 accent-blue-500"
                           aria-label="Volume control"
-                          tabIndex={14}
+                          tabIndex={42}
                         />
                       </div>
 
@@ -1739,7 +1844,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                             ? "Hide subtitles"
                             : "Show subtitles"
                         }
-                        tabIndex={15}
+                        tabIndex={43}
                       >
                         <ClosedCaptioning className="w-4 h-4" />
                       </Button>
@@ -1755,7 +1860,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                             ? "Exit fullscreen"
                             : "Enter fullscreen"
                         }
-                        tabIndex={16}
+                        tabIndex={44}
                       >
                         {videoState.isFullscreen ? (
                           <Minimize className="w-4 h-4" />
@@ -1769,13 +1874,16 @@ Research indicates that students who engage with AI-enhanced learning platforms 
 
                 <div className="p-6">
                   <div className="text-center">
-                    <h3 className="text-xl font-bold mb-3">
+                    <h3 
+                      className="text-xl font-bold mb-3"
+                      tabIndex={45}
+                    >
                       🎬 See FluentForce in Action
                     </h3>
                     <p
                       id="video-description"
                       className={`${themeClasses.textSecondary} mb-4`}
-                      tabIndex={17}
+                      tabIndex={46}
                     >
                       Watch real students improve their academic English through
                       our revolutionary gaming approach. Discover the 5 core
@@ -1784,67 +1892,112 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     </p>
 
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
-                      <div className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-purple-50 hover:to-purple-100 dark:hover:from-purple-900/20 dark:hover:to-purple-800/20 transition-all duration-300 cursor-pointer">
+                      <div 
+                        className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-purple-50 hover:to-purple-100 dark:hover:from-purple-900/20 dark:hover:to-purple-800/20 transition-all duration-300 cursor-pointer"
+                        tabIndex={47}
+                        role="button"
+                        aria-label="Vocabulary game - Master Complex Terms"
+                      >
                         <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mb-2 shadow-lg">
                           <Brain className="w-6 h-6 text-white" />
                         </div>
-                        <span className="font-bold text-purple-700 dark:text-purple-300">
+                        <span 
+                          className="font-bold text-purple-700 dark:text-purple-300"
+                          tabIndex={47}
+                        >
                           Vocabulary
                         </span>
                         <span
                           className={`${themeClasses.textSecondary} text-xs text-center`}
+                          tabIndex={48}
                         >
                           Master Complex Terms
                         </span>
                       </div>
-                      <div className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-900/20 dark:hover:to-blue-800/20 transition-all duration-300 cursor-pointer">
+                      <div 
+                        className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-900/20 dark:hover:to-blue-800/20 transition-all duration-300 cursor-pointer"
+                        tabIndex={49}
+                        role="button"
+                        aria-label="Listening game - Academic Lectures"
+                      >
                         <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-2 shadow-lg">
                           <Headphones className="w-6 h-6 text-white" />
                         </div>
-                        <span className="font-bold text-blue-700 dark:text-blue-300">
+                        <span 
+                          className="font-bold text-blue-700 dark:text-blue-300"
+                          tabIndex={49}
+                        >
                           Listening
                         </span>
                         <span
                           className={`${themeClasses.textSecondary} text-xs text-center`}
+                          tabIndex={50}
                         >
                           Academic Lectures
                         </span>
                       </div>
-                      <div className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-indigo-50 hover:to-indigo-100 dark:hover:from-indigo-900/20 dark:hover:to-indigo-800/20 transition-all duration-300 cursor-pointer">
+                      <div 
+                        className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-indigo-50 hover:to-indigo-100 dark:hover:from-indigo-900/20 dark:hover:to-indigo-800/20 transition-all duration-300 cursor-pointer"
+                        tabIndex={51}
+                        role="button"
+                        aria-label="Grammar game - Advanced Structures"
+                      >
                         <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mb-2 shadow-lg">
                           <Target className="w-6 h-6 text-white" />
                         </div>
-                        <span className="font-bold text-indigo-700 dark:text-indigo-300">
+                        <span 
+                          className="font-bold text-indigo-700 dark:text-indigo-300"
+                          tabIndex={51}
+                        >
                           Grammar
                         </span>
                         <span
                           className={`${themeClasses.textSecondary} text-xs text-center`}
+                          tabIndex={52}
                         >
                           Advanced Structures
                         </span>
                       </div>
-                      <div className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-teal-50 hover:to-teal-100 dark:hover:from-teal-900/20 dark:hover:to-teal-800/20 transition-all duration-300 cursor-pointer">
+                      <div 
+                        className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-teal-50 hover:to-teal-100 dark:hover:from-teal-900/20 dark:hover:to-teal-800/20 transition-all duration-300 cursor-pointer"
+                        tabIndex={53}
+                        role="button"
+                        aria-label="Reading game - Complex Texts"
+                      >
                         <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full flex items-center justify-center mb-2 shadow-lg">
                           <BookOpen className="w-6 h-6 text-white" />
                         </div>
-                        <span className="font-bold text-teal-700 dark:text-teal-300">
+                        <span 
+                          className="font-bold text-teal-700 dark:text-teal-300"
+                          tabIndex={53}
+                        >
                           Reading
                         </span>
                         <span
                           className={`${themeClasses.textSecondary} text-xs text-center`}
+                          tabIndex={54}
                         >
                           Complex Texts
                         </span>
                       </div>
-                      <div className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100 dark:hover:from-green-900/20 dark:hover:to-green-800/20 transition-all duration-300 cursor-pointer">
+                      <div 
+                        className="flex flex-col items-center p-3 rounded-xl hover:bg-gradient-to-br hover:from-green-50 hover:to-green-100 dark:hover:from-green-900/20 dark:hover:to-green-800/20 transition-all duration-300 cursor-pointer"
+                        tabIndex={55}
+                        role="button"
+                        aria-label="Writing game - Academic Essays"
+                      >
                         <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mb-2 shadow-lg">
                           <PenTool className="w-6 h-6 text-white" />
                         </div>
-                        <span className="font-bold text-green-700 dark:text-green-300">
+                        <span 
+                          className="font-bold text-green-700 dark:text-green-300"
+                          tabIndex={55}
+                        >
                           Writing
                         </span>
                         <span
                           className={`${themeClasses.textSecondary} text-xs text-center`}
+                          tabIndex={56}
                         >
                           Academic Essays
                         </span>
@@ -1866,12 +2019,13 @@ Research indicates that students who engage with AI-enhanced learning platforms 
             <h2
               id="features-heading"
               className="text-3xl font-bold text-center mb-4"
-              tabIndex={18}
+              tabIndex={57}
             >
               🎯 Why 95% of Our Students Achieve Their Goals
             </h2>
             <p
               className={`text-lg ${themeClasses.textSecondary} text-center mb-12 max-w-3xl mx-auto`}
+              tabIndex={58}
             >
               Unlike traditional language apps, FluentForce is specifically
               designed for academic success. Here's what makes our students
@@ -1886,29 +2040,49 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Brain className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl font-bold" tabIndex={19}>
+                  <CardTitle 
+                    className="text-xl font-bold" 
+                    tabIndex={59}
+                  >
                     🎮 5 Addictive Learning Games
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className={themeClasses.textSecondary} tabIndex={20}>
+                  <p 
+                    className={themeClasses.textSecondary} 
+                    tabIndex={60}
+                  >
                     <strong>Academic Vocabulary Challenge:</strong> Master 1000+
                     university-level terms
                     <br />
-                    <strong>Listening Lab:</strong> Decode real academic
-                    lectures
+                    <span tabIndex={61}>
+                      <strong>Listening Lab:</strong> Decode real academic
+                      lectures
+                    </span>
                     <br />
-                    <strong>Grammar Quest:</strong> Conquer complex structures
+                    <span tabIndex={62}>
+                      <strong>Grammar Quest:</strong> Conquer complex structures
+                    </span>
                     <br />
-                    <strong>Reading Expedition:</strong> Navigate scholarly
-                    texts
+                    <span tabIndex={63}>
+                      <strong>Reading Expedition:</strong> Navigate scholarly
+                      texts
+                    </span>
                     <br />
-                    <strong>Writing Workshop:</strong> Craft perfect academic
-                    essays
+                    <span tabIndex={64}>
+                      <strong>Writing Workshop:</strong> Craft perfect academic
+                      essays
+                    </span>
                   </p>
-                  <div className="mt-4 flex items-center justify-center space-x-2 text-sm text-green-600 dark:text-green-400">
+                  <div 
+                    className="mt-4 flex items-center justify-center space-x-2 text-sm text-green-600 dark:text-green-400"
+                    tabIndex={65}
+                  >
                     <CheckCircle className="w-4 h-4" />
-                    <span className="font-semibold">
+                    <span 
+                      className="font-semibold"
+                      tabIndex={65}
+                    >
                       Proven by 10,000+ students
                     </span>
                   </div>
@@ -1923,12 +2097,18 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <TrendingUp className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl font-bold" tabIndex={21}>
+                  <CardTitle 
+                    className="text-xl font-bold" 
+                    tabIndex={66}
+                  >
                     Personalized Progress Tracking
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className={themeClasses.textSecondary} tabIndex={22}>
+                  <p 
+                    className={themeClasses.textSecondary} 
+                    tabIndex={67}
+                  >
                     Monitor your improvement with detailed analytics, adaptive
                     difficulty levels, and personalized recommendations based on
                     your learning patterns and goals.
@@ -1944,12 +2124,18 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Award className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl font-bold" tabIndex={23}>
+                  <CardTitle 
+                    className="text-xl font-bold" 
+                    tabIndex={68}
+                  >
                     Academic Excellence Focus
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className={themeClasses.textSecondary} tabIndex={24}>
+                  <p 
+                    className={themeClasses.textSecondary} 
+                    tabIndex={69}
+                  >
                     Specifically designed for university students and
                     professionals who need advanced English skills for academic
                     writing, presentations, and research.
@@ -1965,12 +2151,18 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Users className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl font-bold" tabIndex={25}>
+                  <CardTitle 
+                    className="text-xl font-bold" 
+                    tabIndex={70}
+                  >
                     Global Learning Community
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className={themeClasses.textSecondary} tabIndex={26}>
+                  <p 
+                    className={themeClasses.textSecondary} 
+                    tabIndex={71}
+                  >
                     Connect with learners worldwide, participate in challenges,
                     and benefit from peer learning in a supportive,
                     multicultural environment.
@@ -1986,12 +2178,18 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Globe className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl font-bold" tabIndex={27}>
+                  <CardTitle 
+                    className="text-xl font-bold" 
+                    tabIndex={72}
+                  >
                     Accessibility First
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className={themeClasses.textSecondary} tabIndex={28}>
+                  <p 
+                    className={themeClasses.textSecondary} 
+                    tabIndex={73}
+                  >
                     Fully accessible platform with keyboard navigation, screen
                     reader support, multiple theme options, and inclusive design
                     for learners of all abilities.
@@ -2007,12 +2205,18 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Zap className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl font-bold" tabIndex={29}>
+                  <CardTitle 
+                    className="text-xl font-bold" 
+                    tabIndex={74}
+                  >
                     Instant Feedback & Support
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className={themeClasses.textSecondary} tabIndex={30}>
+                  <p 
+                    className={themeClasses.textSecondary} 
+                    tabIndex={75}
+                  >
                     Receive immediate, constructive feedback on your performance
                     with detailed explanations, tips for improvement, and
                     adaptive learning suggestions.
@@ -2050,40 +2254,58 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   <div>
                     <div
                       className="text-4xl font-bold text-blue-600 mb-2"
-                      tabIndex={33}
+                      tabIndex={76}
                     >
                       50,000+
                     </div>
-                    <p className={themeClasses.textSecondary}>
+                    <p 
+                      className={themeClasses.textSecondary}
+                      tabIndex={77}
+                    >
                       Active Learners
                     </p>
                   </div>
                   <div>
                     <div
                       className="text-4xl font-bold text-purple-600 mb-2"
-                      tabIndex={34}
+                      tabIndex={78}
                     >
                       95%
                     </div>
-                    <p className={themeClasses.textSecondary}>Success Rate</p>
+                    <p 
+                      className={themeClasses.textSecondary}
+                      tabIndex={79}
+                    >
+                      Success Rate
+                    </p>
                   </div>
                   <div>
                     <div
                       className="text-4xl font-bold text-green-600 mb-2"
-                      tabIndex={35}
+                      tabIndex={80}
                     >
                       200+
                     </div>
-                    <p className={themeClasses.textSecondary}>Universities</p>
+                    <p 
+                      className={themeClasses.textSecondary}
+                      tabIndex={81}
+                    >
+                      Universities
+                    </p>
                   </div>
                   <div>
                     <div
                       className="text-4xl font-bold text-orange-600 mb-2"
-                      tabIndex={36}
+                      tabIndex={82}
                     >
                       4.9/5
                     </div>
-                    <p className={themeClasses.textSecondary}>User Rating</p>
+                    <p 
+                      className={themeClasses.textSecondary}
+                      tabIndex={83}
+                    >
+                      User Rating
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -2104,13 +2326,13 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 <h2
                   id="cta-heading"
                   className="text-3xl font-bold mb-6"
-                  tabIndex={37}
+                  tabIndex={84}
                 >
                   Ready to Transform Your English Skills?
                 </h2>
                 <p
                   className={`text-xl ${themeClasses.textSecondary} mb-8 max-w-2xl mx-auto`}
-                  tabIndex={38}
+                  tabIndex={85}
                 >
                   Join our community of learners and start your journey to
                   academic English mastery today. Your future success begins
@@ -2124,7 +2346,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     }}
                     size="lg"
                     className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                    tabIndex={39}
+                    tabIndex={86}
                   >
                     <UserPlus className="w-5 h-5 mr-2" />
                     Get Started Free
@@ -2137,7 +2359,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     variant="outline"
                     size="lg"
                     className={`${themeClasses.border} ${themeClasses.text} hover:bg-gray-50 dark:hover:bg-gray-800 px-8 py-4 text-lg font-semibold transition-all duration-300`}
-                    tabIndex={40}
+                    tabIndex={87}
                   >
                     <LogIn className="w-5 h-5 mr-2" />
                     Sign In
@@ -2154,32 +2376,32 @@ Research indicates that students who engage with AI-enhanced learning platforms 
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="text-center">
-              <p className={themeClasses.textSecondary} tabIndex={41}>
+              <p className={themeClasses.textSecondary} tabIndex={88}>
                 © 2024 English Quest University. Empowering academic success
                 through innovative language learning.
               </p>
               <div className="mt-4 flex justify-center space-x-6 text-sm">
                 <button
                   className={`${themeClasses.textSecondary} hover:${themeClasses.text} transition-colors`}
-                  tabIndex={42}
+                  tabIndex={89}
                 >
                   Privacy Policy
                 </button>
                 <button
                   className={`${themeClasses.textSecondary} hover:${themeClasses.text} transition-colors`}
-                  tabIndex={43}
+                  tabIndex={90}
                 >
                   Terms of Service
                 </button>
                 <button
                   className={`${themeClasses.textSecondary} hover:${themeClasses.text} transition-colors`}
-                  tabIndex={44}
+                  tabIndex={91}
                 >
                   Accessibility
                 </button>
                 <button
                   className={`${themeClasses.textSecondary} hover:${themeClasses.text} transition-colors`}
-                  tabIndex={45}
+                  tabIndex={92}
                 >
                   Contact Support
                 </button>
