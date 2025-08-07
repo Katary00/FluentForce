@@ -902,7 +902,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                     onClick={() => setTheme("light")}
                     className={`p-2.5 rounded-lg transition-all duration-200 ${
                       theme === "light"
-                        ? "bg-white shadow-md text-yellow-600 scale-105"
+                        ? "bg-white shadow-md text-yellow-700 dark:text-yellow-300 scale-105"
                         : "text-gray-600 hover:bg-white/50"
                     }`}
                     aria-label="Light theme"
@@ -948,7 +948,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   aria-label="Help and accessibility options"
                    
                 >
-                  <HelpCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" aria-hidden="true" />
+                  <HelpCircle className="w-5 h-5 text-blue-800 dark:text-blue-300" aria-hidden="true" />
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-bounce"></div>
                 </Button>
 
@@ -994,7 +994,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   className={`relative px-6 py-3 font-semibold transition-all duration-300 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 dark:hover:from-blue-900/30 dark:hover:to-indigo-900/30 hover:shadow-md group`}
                   aria-label="Navigate to home section"
                 >
-                  <Crown className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                  <Crown className="w-5 h-5 mr-2 text-blue-800 dark:text-blue-300 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-300 dark:to-indigo-300 bg-clip-text text-transparent">
                     Home
                   </span>
@@ -1011,7 +1011,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   className={`relative px-6 py-3 font-semibold transition-all duration-300 rounded-xl hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/30 dark:hover:to-pink-900/30 hover:shadow-md group`}
                   aria-label="Navigate to demo video section"
                 >
-                  <PlayCircle className="w-5 h-5 mr-2 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                  <PlayCircle className="w-5 h-5 mr-2 text-purple-800 dark:text-purple-300 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="bg-gradient-to-r from-purple-700 to-pink-700 dark:from-purple-300 dark:to-pink-300 bg-clip-text text-transparent">
                     Demo
                   </span>
@@ -1028,7 +1028,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   className={`relative px-6 py-3 font-semibold transition-all duration-300 rounded-xl hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 dark:hover:from-green-900/30 dark:hover:to-emerald-900/30 hover:shadow-md group`}
                    
                 >
-                  <Gamepad2 className="w-5 h-5 mr-2 text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                  <Gamepad2 className="w-5 h-5 mr-2 text-green-800 dark:text-green-300 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="bg-gradient-to-r from-green-700 to-emerald-700 dark:from-green-300 dark:to-emerald-300 bg-clip-text text-transparent">
                     Games
                   </span>
@@ -1045,7 +1045,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   className={`relative px-6 py-3 font-semibold transition-all duration-300 rounded-xl hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50 dark:hover:from-orange-900/30 dark:hover:to-yellow-900/30 hover:shadow-md group`}
                    
                 >
-                  <TrendingUp className="w-5 h-5 mr-2 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                  <TrendingUp className="w-5 h-5 mr-2 text-orange-800 dark:text-orange-300 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="bg-gradient-to-r from-orange-700 to-yellow-700 dark:from-orange-300 dark:to-yellow-300 bg-clip-text text-transparent">
                     Results
                   </span>
@@ -1064,7 +1064,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                       console.log("Mobile menu toggle");
                     }}
                   >
-                    <Settings className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                    <Settings className="w-5 h-5 text-blue-800 dark:text-blue-300" />
                   </Button>
                 </div>
               </div>
@@ -1082,8 +1082,8 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                    
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-10 transition-opacity rounded-xl"></div>
-                  <LogIn className="w-5 h-5 mr-2 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" aria-hidden="true" />
-                  <span className="relative z-10 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <LogIn className="w-5 h-5 mr-2 text-gray-800 dark:text-gray-200 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors" aria-hidden="true" />
+                  <span className="relative z-10 text-gray-800 dark:text-gray-200 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors">
                     Sign In
                   </span>
                 </Button>
@@ -1117,7 +1117,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   }}
                   className={`p-4 rounded-xl bg-white/70 dark:bg-gray-800/70 shadow-md border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300 hover:scale-105 group`}
                 >
-                  <Crown className="w-5 h-5 mx-auto mb-2 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                  <Crown className="w-5 h-5 mx-auto mb-2 text-blue-800 dark:text-blue-300 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Home
                   </span>
@@ -1131,7 +1131,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   }}
                   className={`p-4 rounded-xl bg-white/70 dark:bg-gray-800/70 shadow-md border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300 hover:scale-105 group`}
                 >
-                  <PlayCircle className="w-5 h-5 mx-auto mb-2 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                  <PlayCircle className="w-5 h-5 mx-auto mb-2 text-purple-800 dark:text-purple-300 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Demo
                   </span>
@@ -1145,7 +1145,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   }}
                   className={`p-4 rounded-xl bg-white/70 dark:bg-gray-800/70 shadow-md border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300 hover:scale-105 group`}
                 >
-                  <Gamepad2 className="w-5 h-5 mx-auto mb-2 text-green-600 dark:text-green-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                  <Gamepad2 className="w-5 h-5 mx-auto mb-2 text-green-800 dark:text-green-300 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Games
                   </span>
@@ -1159,7 +1159,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   }}
                   className={`p-4 rounded-xl bg-white/70 dark:bg-gray-800/70 shadow-md border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all duration-300 hover:scale-105 group`}
                 >
-                  <TrendingUp className="w-5 h-5 mx-auto mb-2 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                  <TrendingUp className="w-5 h-5 mx-auto mb-2 text-orange-800 dark:text-orange-300 group-hover:scale-110 transition-transform" aria-hidden="true" />
                   <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                     Results
                   </span>
@@ -1213,7 +1213,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                 role="banner"
                 aria-label="#1 Academic English Gaming Platform"
               >
-                <Crown className="w-5 h-5 text-purple-600 dark:text-purple-400" aria-hidden="true" />
+                <Crown className="w-5 h-5 text-purple-800 dark:text-purple-300" aria-hidden="true" />
                 <span className="text-sm font-semibold text-purple-800 dark:text-purple-300">
                   #1 Academic English Gaming Platform
                 </span>
@@ -1259,11 +1259,11 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   className={`text-sm ${themeClasses.textSecondary} text-center`}
                    
                 >
-                  <span className="text-purple-600 font-medium">
+                  <span className="text-purple-800 dark:text-purple-300 font-medium">
                     Vocabulary
                   </span>{" "}
-                  • <span className="text-blue-600 font-medium">Listening</span>{" "}
-                  • <span className="text-indigo-600 font-medium">Grammar</span>{" "}
+                  • <span className="text-blue-800 dark:text-blue-300 font-medium">Listening</span>{" "}
+                  • <span className="text-indigo-800 dark:text-indigo-300 font-medium">Grammar</span>{" "}
                   • <span className="text-teal-800 dark:text-teal-300 font-medium">Reading</span> •{" "}
                   <span className="text-green-800 dark:text-green-300 font-medium">Writing</span>
                 </p>
@@ -1317,7 +1317,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   className={`text-sm ${themeClasses.textSecondary} text-center`}
                    
                 >
-                  <span className="text-blue-600 font-medium">
+                  <span className="text-blue-800 dark:text-blue-300 font-medium">
                     Immediate Feedback
                   </span>{" "}
                   •{" "}
@@ -1345,7 +1345,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                    
                   role="banner"
                 >
-                  <Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <Sparkles className="w-5 h-5 text-purple-800 dark:text-purple-300" />
                   <span className="text-sm font-semibold text-purple-800 dark:text-purple-300">
                     What Makes Us Unique
                   </span>
@@ -1510,7 +1510,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                   </div>
                   <div>
                     <p className={`text-xl font-bold ${themeClasses.text}`} role="text">
-                      Join <span className="text-green-600" role="text">10,000+</span>{" "}
+                      Join <span className="text-green-800 dark:text-green-300" role="text">10,000+</span>{" "}
                       students
                     </p>
                     <p className={`text-sm ${themeClasses.textSecondary}`}>
@@ -1817,11 +1817,11 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                            
                         >
                           {videoState.isMuted ? (
-                            <VolumeOff className="w-4 h-4" />
+                            <VolumeOff className="w-4 h-4" aria-hidden="true" />
                           ) : videoState.volume > 0.5 ? (
-                            <Volume2 className="w-4 h-4" />
+                            <Volume2 className="w-4 h-4" aria-hidden="true" />
                           ) : (
-                            <Volume1 className="w-4 h-4" />
+                            <Volume1 className="w-4 h-4" aria-hidden="true" />
                           )}
                         </Button>
                         <input
@@ -1858,7 +1858,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                         }
                          
                       >
-                        <ClosedCaptioning className="w-4 h-4" />
+                        <ClosedCaptioning className="w-4 h-4" aria-hidden="true" />
                       </Button>
 
                       {/* Fullscreen Toggle */}
@@ -1875,9 +1875,9 @@ Research indicates that students who engage with AI-enhanced learning platforms 
                          
                       >
                         {videoState.isFullscreen ? (
-                          <Minimize className="w-4 h-4" />
+                          <Minimize className="w-4 h-4" aria-hidden="true" />
                         ) : (
-                          <Maximize className="w-4 h-4" />
+                          <Maximize className="w-4 h-4" aria-hidden="true" />
                         )}
                       </Button>
                     </div>
