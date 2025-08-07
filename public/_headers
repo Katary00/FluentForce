@@ -1,35 +1,40 @@
 # Headers adicionales para optimización
-/*
-  X-Frame-Options: DENY
-  X-XSS-Protection: 1; mode=block
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
+
+/\*
+X-Frame-Options: DENY
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
 
 # Cache para archivos estáticos
-/static/*
-  Cache-Control: public, max-age=31536000, immutable
+
+/static/\*
+Cache-Control: public, max-age=31536000, immutable
 
 # Cache para JavaScript y CSS
-*.js
-  Cache-Control: public, max-age=31536000
 
-*.css
-  Cache-Control: public, max-age=31536000
+\*.js
+Cache-Control: public, max-age=31536000
+
+\*.css
+Cache-Control: public, max-age=31536000
 
 # Optimización para fuentes
-*.woff2
-  Cache-Control: public, max-age=31536000
-  Access-Control-Allow-Origin: *
+
+_.woff2
+Cache-Control: public, max-age=31536000
+Access-Control-Allow-Origin: _
 
 # Videos y imágenes
-*.mp4
-  Cache-Control: public, max-age=604800
 
-*.jpg
-  Cache-Control: public, max-age=604800
+\*.mp4
+Cache-Control: public, max-age=604800
 
-*.png
-  Cache-Control: public, max-age=604800
+\*.jpg
+Cache-Control: public, max-age=604800
 
-*.svg
-  Cache-Control: public, max-age=604800
+\*.png
+Cache-Control: public, max-age=604800
+
+\*.svg
+Cache-Control: public, max-age=604800

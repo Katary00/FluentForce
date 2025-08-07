@@ -24,12 +24,14 @@ npm run netlify  # Build optimizado para Netlify
 ### Opción 1: Deployment Automático desde Git
 
 1. **Conectar repositorio a Netlify:**
+
    - Ve a [netlify.com](https://netlify.com)
    - Crea una cuenta o inicia sesión
    - Click en "New site from Git"
    - Conecta tu repositorio de GitHub
 
 2. **Configuración de Build:**
+
    - Build command: `npm run build`
    - Publish directory: `out`
    - Node version: `18`
@@ -41,6 +43,7 @@ npm run netlify  # Build optimizado para Netlify
 ### Opción 2: Deployment Manual
 
 1. **Build local:**
+
    ```bash
    npm install
    npm run build
@@ -53,15 +56,18 @@ npm run netlify  # Build optimizado para Netlify
 ## 🔧 Configuraciones Adicionales
 
 ### Custom Domain
+
 1. En Netlify Dashboard > Domain settings
 2. Add custom domain
 3. Configura DNS según las instrucciones
 
 ### SSL/HTTPS
+
 - Se configura automáticamente con Netlify
 - Let's Encrypt incluido gratis
 
 ### Performance
+
 - Headers de cache configurados
 - Compresión gzip/brotli automática
 - CDN global incluido
@@ -77,15 +83,18 @@ npm run netlify  # Build optimizado para Netlify
 ## 🐛 Troubleshooting
 
 ### Build Failures
+
 - Verifica que todas las dependencias estén en `package.json`
 - Revisa que no hay errores de TypeScript críticos
 - Asegúrate de que el Node version sea 18+
 
 ### 404 Errors
+
 - Verifica que el `output: 'export'` esté en `next.config.mjs`
 - Confirma que las rutas están configuradas correctamente
 
 ### Performance Issues
+
 - Optimiza imágenes antes del deployment
 - Verifica que los headers de cache estén funcionando
 - Usa herramientas como Lighthouse para análisis
@@ -93,6 +102,7 @@ npm run netlify  # Build optimizado para Netlify
 ## 📊 Monitoring
 
 Una vez desplegado, puedes monitorear:
+
 - Analytics en Netlify Dashboard
 - Core Web Vitals
 - Uptime y performance
@@ -101,6 +111,7 @@ Una vez desplegado, puedes monitorear:
 ## 🔄 CI/CD
 
 El proyecto está configurado para deployment automático:
+
 - Push a `main` → Build automático
 - Pull requests → Deploy previews
 - Rollback automático en caso de errores

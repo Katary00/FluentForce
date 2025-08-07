@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Configuración para exportación estática en Netlify
-  output: 'export',
+  output: "export",
   trailingSlash: true,
   images: {
     unoptimized: true,
@@ -13,13 +13,13 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   // Configuración para archivos estáticos
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
+  assetPrefix: process.env.NODE_ENV === "production" ? "" : "",
   // Configuración de rutas
-  basePath: '',
+  basePath: "",
   // Optimización del compilador
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === "production",
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
