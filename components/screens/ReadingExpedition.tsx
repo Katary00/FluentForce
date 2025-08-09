@@ -12,7 +12,6 @@ import {
   Star,
   Flame,
   Heart,
-  Timer,
   CheckCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -90,6 +89,7 @@ export default function ReadingExpedition({
                 variant="ghost"
                 onClick={goToGameDashboard}
                 className={themeClasses.button}
+                tabIndex={1}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Exit Expedition
@@ -125,6 +125,7 @@ export default function ReadingExpedition({
                       : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Light theme"
+                  tabIndex={2}
                 >
                   <Sun className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -138,6 +139,7 @@ export default function ReadingExpedition({
                       : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Neutral theme"
+                  tabIndex={3}
                 >
                   <Monitor className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -149,6 +151,7 @@ export default function ReadingExpedition({
                     theme === "dark" ? `${themeClasses.cardBg} shadow-sm` : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Dark theme"
+                  tabIndex={4}
                 >
                   <Moon className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -157,6 +160,7 @@ export default function ReadingExpedition({
               <div className="flex items-center space-x-6">
                 <div
                   className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                  tabIndex={5}
                 >
                   <Star className={`w-4 h-4 ${themeClasses.textSecondary}`} />
                   <span className={`font-bold ${themeClasses.text}`}>
@@ -165,6 +169,7 @@ export default function ReadingExpedition({
                 </div>
                 <div
                   className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                  tabIndex={6}
                 >
                   <Flame
                     className={`w-4 h-4 ${themeClasses.textSecondary}`}
@@ -173,7 +178,7 @@ export default function ReadingExpedition({
                     {gameState.streak}
                   </span>
                 </div>
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1" tabIndex={7}>
                   {Array.from({ length: gameState.lives }).map((_, i) => (
                     <Heart
                       key={i}
@@ -181,19 +186,8 @@ export default function ReadingExpedition({
                     />
                   ))}
                 </div>
-                <div
-                  className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
-                >
-                  <Timer
-                    className={`w-4 h-4 ${themeClasses.textSecondary}`}
-                  />
-                  <span className={`font-bold text-lg ${themeClasses.text}`}>
-                    {gameState.timeLeft}s
-                  </span>
-                </div>
-                <div className={`text-sm ${themeClasses.textSecondary}`}>
-                  Question {gameState.currentQuestion + 1} of{" "}
-                  {gameState.totalQuestions}
+                <div className={`text-lg font-semibold ${themeClasses.text}`} tabIndex={8}>
+                  Question {gameState.currentQuestion + 1} of {gameState.totalQuestions}
                 </div>
               </div>
             </div>
@@ -212,14 +206,15 @@ export default function ReadingExpedition({
               <h2
                 className={`text-xl font-bold ${themeClasses.text}`}
                 id="reading-passage-title"
+                tabIndex={9}
               >
                 {readingPassage.title}
               </h2>
-              <CardDescription className={themeClasses.textSecondary}>
+              <CardDescription className={themeClasses.textSecondary} tabIndex={10}>
                 Academic Text - Advanced Level
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent tabIndex={11}>
               <div className="prose prose-gray max-w-none">
                 {readingPassage.text.split("\n\n").map((paragraph, index) => (
                   <p
@@ -241,6 +236,7 @@ export default function ReadingExpedition({
               <h3
                 className={`text-lg font-bold ${themeClasses.text}`}
                 id="reading-comprehension-question"
+                tabIndex={12}
               >
                 Comprehension Question
               </h3>
@@ -251,11 +247,13 @@ export default function ReadingExpedition({
                   100
                 }
                 className="w-full h-2"
+                tabIndex={13}
               />
             </CardHeader>
             <CardContent className="space-y-6">
               <div
                 className={`${themeClasses.cardBg} ${themeClasses.border} rounded-lg p-4`}
+                tabIndex={14}
               >
                 <h3
                   className={`text-lg font-semibold mb-4 ${themeClasses.text}`}
@@ -292,6 +290,7 @@ export default function ReadingExpedition({
                       className={buttonClass}
                       onClick={() => handleAnswerSelect(index)}
                       disabled={showFeedback}
+                      tabIndex={15 + index}
                     >
                       <div className="flex items-start space-x-3">
                         <div
@@ -315,6 +314,7 @@ export default function ReadingExpedition({
                       ? "bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800"
                       : "bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800"
                   }`}
+                  tabIndex={19}
                 >
                   <div className="flex items-center space-x-2 mb-2">
                     {isCorrect ? (
@@ -333,24 +333,6 @@ export default function ReadingExpedition({
                         } points!`
                       : "Re-read the relevant section and look for key details that support the correct answer."}
                   </p>
-                </div>
-              )}
-
-              {!showFeedback && (
-                <div className="text-center">
-                  <Button
-                    variant="outline"
-                    className={`${themeClasses.border} ${themeClasses.textSecondary} hover:bg-gray-50 dark:hover:bg-gray-800`}
-                    onClick={() => {
-                      const passage = document.querySelector(".prose");
-                      if (passage) {
-                        passage.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
-                  >
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    Re-read Passage
-                  </Button>
                 </div>
               )}
             </CardContent>

@@ -12,7 +12,6 @@ import {
   Star,
   Flame,
   Heart,
-  Timer,
   Save,
   RefreshCw,
   HelpCircle,
@@ -85,6 +84,7 @@ export default function WritingWorkshop({
                 variant="ghost"
                 onClick={goToGameDashboard}
                 className={themeClasses.button}
+                tabIndex={1}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Exit Workshop
@@ -120,6 +120,7 @@ export default function WritingWorkshop({
                       : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Light theme"
+                  tabIndex={2}
                 >
                   <Sun className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -133,6 +134,7 @@ export default function WritingWorkshop({
                       : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Neutral theme"
+                  tabIndex={3}
                 >
                   <Monitor className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -144,6 +146,7 @@ export default function WritingWorkshop({
                     theme === "dark" ? `${themeClasses.cardBg} shadow-sm` : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Dark theme"
+                  tabIndex={4}
                 >
                   <Moon className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -152,6 +155,7 @@ export default function WritingWorkshop({
               <div className="flex items-center space-x-6">
                 <div
                   className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                  tabIndex={5}
                 >
                   <Star className={`w-4 h-4 ${themeClasses.textSecondary}`} />
                   <span className={`font-bold ${themeClasses.text}`}>
@@ -160,6 +164,7 @@ export default function WritingWorkshop({
                 </div>
                 <div
                   className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                  tabIndex={6}
                 >
                   <Flame
                     className={`w-4 h-4 ${themeClasses.textSecondary}`}
@@ -168,7 +173,7 @@ export default function WritingWorkshop({
                     {gameState.streak}
                   </span>
                 </div>
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1" tabIndex={7}>
                   {Array.from({ length: gameState.lives }).map((_, i) => (
                     <Heart
                       key={i}
@@ -176,18 +181,7 @@ export default function WritingWorkshop({
                     />
                   ))}
                 </div>
-                <div
-                  className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
-                >
-                  <Timer
-                    className={`w-4 h-4 ${themeClasses.textSecondary}`}
-                  />
-                  <span className={`font-bold ${themeClasses.text}`}>
-                    {Math.floor(gameState.timeLeft / 60)}:
-                    {(gameState.timeLeft % 60).toString().padStart(2, "0")}
-                  </span>
-                </div>
-                <div className={`text-sm ${themeClasses.textSecondary}`}>
+                <div className={`text-sm ${themeClasses.textSecondary}`} tabIndex={8}>
                   Words:{" "}
                   {writingText.split(" ").filter((w) => w.length > 0).length}
                 </div>
@@ -199,6 +193,7 @@ export default function WritingWorkshop({
                     // Save draft functionality
                     console.log("Draft saved");
                   }}
+                  tabIndex={9}
                 >
                   <Save className="w-4 h-4 mr-2" />
                   Save Draft
@@ -220,6 +215,7 @@ export default function WritingWorkshop({
               <h2
                 className={`text-lg font-bold ${themeClasses.text}`}
                 id="writing-essay-prompt"
+                tabIndex={10}
               >
                 Essay Prompt
               </h2>
@@ -231,10 +227,10 @@ export default function WritingWorkshop({
               <div
                 className={`${themeClasses.cardBg} ${themeClasses.border} rounded-lg p-4`}
               >
-                <h3 className={`font-semibold mb-3 ${themeClasses.text}`}>
+                <h3 className={`font-semibold mb-3 ${themeClasses.text}`} tabIndex={11}>
                   Topic:
                 </h3>
-                <p className={`text-sm leading-relaxed ${themeClasses.text}`}>
+                <p className={`text-sm leading-relaxed ${themeClasses.text}`} tabIndex={12}>
                   "The integration of artificial intelligence in higher
                   education presents both opportunities and challenges.
                   Discuss the potential benefits and drawbacks of AI
@@ -244,13 +240,14 @@ export default function WritingWorkshop({
               </div>
 
               <div className="space-y-3">
-                <h4 className={`font-semibold ${themeClasses.text}`}>
+                <h4 className={`font-semibold ${themeClasses.text}`} tabIndex={13}>
                   Requirements:
                 </h4>
                 <ul
                   className={`text-sm space-y-1 ${themeClasses.textSecondary}`}
+                  tabIndex={14}
                 >
-                  <li>• Minimum 300 words</li>
+                  <li>• Minimum 150 words</li>
                   <li>• Clear thesis statement</li>
                   <li>• Academic vocabulary</li>
                   <li>• Balanced argumentation</li>
@@ -259,11 +256,12 @@ export default function WritingWorkshop({
               </div>
 
               <div className="space-y-3">
-                <h4 className={`font-semibold ${themeClasses.text}`}>
+                <h4 className={`font-semibold ${themeClasses.text}`} tabIndex={15}>
                   Suggested Structure:
                 </h4>
                 <ul
                   className={`text-sm space-y-1 ${themeClasses.textSecondary}`}
+                  tabIndex={16}
                 >
                   <li>1. Introduction with thesis</li>
                   <li>2. Benefits of AI in education</li>
@@ -284,6 +282,7 @@ export default function WritingWorkshop({
                   <h3
                     className={`text-lg font-bold ${themeClasses.text}`}
                     id="essay-writing-area"
+                    tabIndex={17}
                   >
                     Your Essay
                   </h3>
@@ -292,6 +291,7 @@ export default function WritingWorkshop({
                       variant="ghost"
                       size="sm"
                       className={themeClasses.button}
+                      tabIndex={18}
                     >
                       <RefreshCw className="w-4 h-4" />
                     </Button>
@@ -299,6 +299,7 @@ export default function WritingWorkshop({
                       variant="ghost"
                       size="sm"
                       className={themeClasses.button}
+                      tabIndex={19}
                     >
                       <HelpCircle className="w-4 h-4" />
                     </Button>
@@ -311,11 +312,13 @@ export default function WritingWorkshop({
                   onChange={(e) => setWritingText(e.target.value)}
                   placeholder="Begin writing your academic essay here. Remember to use formal academic language and structure your arguments clearly..."
                   className={`w-full h-96 ${themeClasses.cardBg} ${themeClasses.border} ${themeClasses.text} placeholder:${themeClasses.textSecondary} resize-none text-sm leading-relaxed`}
+                  tabIndex={20}
                 />
 
                 <div className="mt-4 flex items-center justify-between">
                   <div
                     className={`flex items-center space-x-4 text-sm ${themeClasses.textSecondary}`}
+                    tabIndex={21}
                   >
                     <span>Characters: {writingText.length}</span>
                     <span>
@@ -338,10 +341,21 @@ export default function WritingWorkshop({
                   <Button
                     className={themeClasses.accent}
                     disabled={
+                      writingText.trim().length === 0 ||
                       writingText.split(" ").filter((w) => w.length > 0)
-                        .length < 50
+                        .length < 150
                     }
                     onClick={() => {
+                      const wordCount = writingText.split(" ").filter((w) => w.length > 0).length;
+                      if (writingText.trim().length === 0) {
+                        alert("Please write something before submitting!");
+                        return;
+                      }
+                      if (wordCount < 150) {
+                        alert(`Your essay needs at least 150 words. You currently have ${wordCount} words.`);
+                        return;
+                      }
+                      
                       // Submit essay functionality
                       setGameState((prev) => ({
                         ...prev,
@@ -352,8 +366,10 @@ export default function WritingWorkshop({
                           prev ? { ...prev, xp: prev.xp + 500 } : null
                         );
                       }
+                      alert("Essay submitted successfully! Great work!");
                       endGame();
                     }}
+                    tabIndex={22}
                   >
                     <Send className="w-4 h-4 mr-2" />
                     Submit Essay
@@ -363,6 +379,7 @@ export default function WritingWorkshop({
                 {/* Real-time feedback */}
                 <div
                   className={`mt-4 p-3 ${themeClasses.cardBg} ${themeClasses.border} rounded-lg`}
+                  tabIndex={23}
                 >
                   <h4
                     className={`font-semibold mb-2 text-sm ${themeClasses.text}`}

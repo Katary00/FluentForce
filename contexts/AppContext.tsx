@@ -142,11 +142,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [showFeedback, setShowFeedback] = useState(false);
   const [writingText, setWritingText] = useState("");
 
-  // Timer Effect - Countdown durante el juego (excepto listening)
+  // Timer Effect - Countdown durante el juego (excepto listening, reading y writing)
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
     
-    if (gameState.isPlaying && !gameState.isPaused && gameState.timeLeft > 0 && gameState.currentGame !== 'listening') {
+    if (gameState.isPlaying && !gameState.isPaused && gameState.timeLeft > 0 && 
+        gameState.currentGame !== 'listening' && 
+        gameState.currentGame !== 'reading' && 
+        gameState.currentGame !== 'writing') {
       interval = setInterval(() => {
         setGameState(prev => {
           if (prev.timeLeft <= 1) {
@@ -369,6 +372,70 @@ export function AppProvider({ children }: { children: ReactNode }) {
       correct: 1,
       explanation: "'Given' is used to introduce a reason or cause, meaning 'considering' or 'taking into account'.",
       rule: "Causal Connectors",
+    },
+    {
+      id: 3,
+      sentence: "The professor _____ the students to submit their assignments by Friday.",
+      options: ["reminded", "remembered", "recalled", "memorized"],
+      correct: 0,
+      explanation: "'Reminded' means to tell someone about something they need to remember or do.",
+      rule: "Verbs of Memory and Communication",
+    },
+    {
+      id: 4,
+      sentence: "If I _____ more time, I would have finished the project yesterday.",
+      options: ["have had", "had had", "would have", "will have"],
+      correct: 1,
+      explanation: "Use 'had had' in the condition of a third conditional (past unreal conditional).",
+      rule: "Third Conditional",
+    },
+    {
+      id: 5,
+      sentence: "The results were _____ significant that they changed our entire approach.",
+      options: ["so", "such", "very", "too"],
+      correct: 0,
+      explanation: "Use 'so' before adjectives in the 'so...that' structure.",
+      rule: "Intensifiers with 'so/such...that'",
+    },
+    {
+      id: 6,
+      sentence: "She is one of the few students _____ consistently excels in mathematics.",
+      options: ["who", "which", "that", "whom"],
+      correct: 0,
+      explanation: "'Who' is used for people as the subject of a relative clause.",
+      rule: "Relative Pronouns for People",
+    },
+    {
+      id: 7,
+      sentence: "_____ carefully reviewing the data, the team identified several patterns.",
+      options: ["After", "Before", "While", "During"],
+      correct: 0,
+      explanation: "'After' + gerund indicates that one action happened before another.",
+      rule: "Time Expressions with Gerunds",
+    },
+    {
+      id: 8,
+      sentence: "The conference _____ next month will focus on sustainable technology.",
+      options: ["held", "holding", "to be held", "being held"],
+      correct: 2,
+      explanation: "'To be held' indicates a future passive event.",
+      rule: "Future Passive Participles",
+    },
+    {
+      id: 9,
+      sentence: "Not only _____ the presentation informative, but it was also engaging.",
+      options: ["was", "it was", "were", "did"],
+      correct: 0,
+      explanation: "After 'not only' at the beginning of a sentence, use inverted word order.",
+      rule: "Inversion with Negative Adverbials",
+    },
+    {
+      id: 10,
+      sentence: "The students were required _____ their research proposals by the deadline.",
+      options: ["submitting", "to submit", "submit", "submitted"],
+      correct: 1,
+      explanation: "'Required to do' is the correct structure for obligation.",
+      rule: "Verbs of Obligation + Infinitive",
     }
   ];
 
@@ -397,6 +464,36 @@ Research indicates that students who engage with AI-enhanced learning platforms 
           "It depends on thoughtful integration into pedagogical frameworks",
           "It only works for certain types of students",
           "It requires complete replacement of existing systems"
+        ],
+        correct: 1
+      },
+      {
+        question: "What are some of the challenges mentioned regarding AI implementation in education?",
+        options: [
+          "High costs and technical complexity only",
+          "Data privacy, digital divide, and potential replacement of human interaction",
+          "Lack of student interest and engagement",
+          "Limited research and development capabilities"
+        ],
+        correct: 1
+      },
+      {
+        question: "According to the research mentioned in the passage, students who use AI-enhanced platforms show:",
+        options: [
+          "Decreased academic performance but higher satisfaction",
+          "No significant change in learning outcomes",
+          "Improved academic performance and higher engagement levels",
+          "Better test scores but lower creativity"
+        ],
+        correct: 2
+      },
+      {
+        question: "What does the passage indicate about AI-powered systems' capabilities for educators?",
+        options: [
+          "They can only provide basic administrative support",
+          "They assist in creating more effective curricula and assessment methods",
+          "They are designed primarily for student use only",
+          "They focus exclusively on grading and evaluation"
         ],
         correct: 1
       }
@@ -508,7 +605,14 @@ Research indicates that students who engage with AI-enhanced learning platforms 
   // Game functions
   const startGame = (gameType: string) => {
     // Set totalQuestions based on game type
-    const totalQuestions = gameType === 'listening' ? 3 : 10;
+    let totalQuestions = 10; // default
+    if (gameType === 'listening') totalQuestions = 3;
+    else if (gameType === 'reading') totalQuestions = 5;
+    
+    // Set timeLeft based on game type
+    let timeLeft = 30; // default
+    if (gameType === 'grammar') timeLeft = 240; // 4 minutes
+    else if (gameType === 'vocabulary') timeLeft = 120; // 2 minutes
     
     setGameState(prev => ({
       ...prev,
@@ -518,20 +622,26 @@ Research indicates that students who engage with AI-enhanced learning platforms 
       currentQuestion: 0,
       score: 0,
       lives: 3,
-      timeLeft: 30,
+      timeLeft: timeLeft,
       totalQuestions: totalQuestions
     }));
   };
 
   const resetGame = () => {
-    const totalQuestions = gameState.currentGame === 'listening' ? 3 : 10;
+    let totalQuestions = 10; // default
+    if (gameState.currentGame === 'listening') totalQuestions = 3;
+    else if (gameState.currentGame === 'reading') totalQuestions = 5;
+    
+    let timeLeft = 30; // default
+    if (gameState.currentGame === 'grammar') timeLeft = 240; // 4 minutes
+    else if (gameState.currentGame === 'vocabulary') timeLeft = 120; // 2 minutes
     
     setGameState(prev => ({
       ...prev,
       score: 0,
       lives: 3,
       streak: 0,
-      timeLeft: 30,
+      timeLeft: timeLeft,
       currentQuestion: 0,
       totalQuestions: totalQuestions,
       isPlaying: false,

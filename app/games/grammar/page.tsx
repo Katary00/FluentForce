@@ -99,6 +99,7 @@ export default function GrammarPage() {
       goToGameDashboard={goToGameDashboard}
       setTheme={setTheme}
       handleAnswerSelect={handleAnswerSelect}
+      pauseGame={pauseGame}
     />
   );
 }
