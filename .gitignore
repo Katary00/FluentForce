@@ -37,7 +37,6 @@ dist/
 # TypeScript
 # ====================
 *.tsbuildinfo
-next-env.d.ts
 
 # ====================
 # Logs / Registros
@@ -47,6 +46,81 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+
+# ====================
+# IDE / Editor
+# ====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ====================
+# OS / Sistema Operativo
+# ====================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ====================
+# Testing / Pruebas
+# ====================
+coverage/
+.nyc_output
+.jest-cache/
+
+# ====================
+# Development Scripts / Scripts de Desarrollo
+# ====================
+# Scripts temporales para corrección de tabindex y accesibilidad
+fix-*.js
+apply-*.js
+fix-tabindex.js
+fix-tabindex-batch.js
+fix-tabindex-safe.js
+apply-tabindex-phase1.js
+
+# ====================
+# Documentation Temporal / Documentación Temporal
+# ====================
+# Archivos de documentación de progreso/completado (temporal)
+*-COMPLETION.md
+VOCABULARY-GAME-COMPLETION.md
+LISTENING-LAB-COMPLETION.md
+REFACTORING-PROGRESS.md
+
+# Pero mantener documentación importante:
+# !DEPLOYMENT.md
+# !NETLIFY-READY.md
+# !README.md
+# !SecuenciaTabIndex.md
+
+# ====================
+# Legacy Files / Archivos Legacy
+# ====================
+# Archivos de respaldo y versiones anteriores
+*-legacy.*
+page-legacy.tsx
+app/page-legacy.tsx
+
+# ====================
+# Backup / Respaldos
+# ====================
+*.backup
+*.bak
+*.tmp
+
+# ====================
+# Cache / Caché
+# ====================
+.cache/
+.parcel-cache/
+.eslintcache
 
 # ====================
 # Runtime Data / Datos de Tiempo de Ejecución
