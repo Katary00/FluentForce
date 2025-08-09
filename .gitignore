@@ -285,3 +285,5 @@ dist/
 .env.test.local
 .env.production.local
 FOCUS-TRAP-IMPLEMENTATION.md
+SecuenciaTabIndex.md
+.gitignore

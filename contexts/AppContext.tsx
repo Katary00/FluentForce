@@ -551,17 +551,36 @@ Research indicates that students who engage with AI-enhanced learning platforms 
 
   // Authentication functions
   const handleLogin = (email: string, password: string) => {
-    const mockUser: User = {
-      id: "1",
-      name: "Alex Johnson",
-      email: email,
-      level: 8,
-      xp: 2450,
-      completedGames: ["vocabulary"],
-      streak: 5,
-      achievements: ["First Steps", "Vocabulary Master"],
-      courses: ["Academic Writing", "IELTS Preparation"],
-    };
+    let mockUser: User;
+    
+    // Usuario específico para Tania Calle
+    if (email === "tania.calle@gmail.com" && password === "123456") {
+      mockUser = {
+        id: "2",
+        name: "Tania Calle",
+        email: email,
+        level: 12,
+        xp: 3850,
+        completedGames: ["vocabulary", "grammar", "reading"],
+        streak: 8,
+        achievements: ["First Steps", "Vocabulary Master", "Grammar Expert", "Reading Comprehension"],
+        courses: ["Academic Writing", "IELTS Preparation", "Advanced English"],
+      };
+    } else {
+      // Usuario por defecto para cualquier otro email/contraseña
+      mockUser = {
+        id: "1",
+        name: "Alex Johnson",
+        email: email,
+        level: 8,
+        xp: 2450,
+        completedGames: ["vocabulary"],
+        streak: 5,
+        achievements: ["First Steps", "Vocabulary Master"],
+        courses: ["Academic Writing", "IELTS Preparation"],
+      };
+    }
+    
     setUser(mockUser);
     setIsAuthenticated(true);
   };
