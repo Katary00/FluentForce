@@ -116,3 +116,37 @@ Despues Fully accessible platform with keyboard navigation, screen reader suppor
 
 Despues Instant Feedback & Support
 Despues Receive immediate, constructive feedback on your performance with detailed explanations, tips for improvement, and adaptive learning suggestions.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+los botones de los modos de tema
+La estrellita
+El fuego
+Las vidas
+words:0 (esto debe actualizarse con el numero de palabras escritas)
+boton save draft
+Essay Prompt
+Topic
+"The integration of artificial intelligence in higher education presents both opportunities and challenges. Discuss the potential benefits and drawbacks of AI implementation in universities, providing specific examples and evidence to support your arguments."
+Requirements:
+• Minimum 300 words
+• Clear thesis statement
+• Academic vocabulary
+• Balanced argumentation
+• Proper conclusion
+Suggested Structure:
+
+1. Introduction with thesis
+2. Benefits of AI in education
+3. Challenges and concerns
+4. Balanced conclusion
+   Your Essay
+   boton de actualizar creoqu es que esta al mismo nivel de Your Essay pero a la derecha
+   boton que tiene el signo de interrogacion
+   la seccion donde ya debemos escribir
+   Characters: 71
+   Words: 2
+   Paragraphs: 2
+   botn Submit Essay(hazle que funcione pero que valide que no este vacio y que tenga al menos 150 palabras)
+   Writing Assistant:
+   • Start with a clear introduction and thesis statement
+   • Consider using transition words to connect your ideas
