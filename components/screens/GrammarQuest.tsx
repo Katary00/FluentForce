@@ -11,6 +11,8 @@ import {
   Moon,
   Star,
   Timer,
+  Flame,
+  Heart,
   Zap,
   CheckCircle,
   Lightbulb,
@@ -55,7 +57,7 @@ interface GrammarQuestProps {
     button: string;
     accent: string;
   };
-  resetGame: () => void;
+  goToGameDashboard: () => void;
   setTheme: (theme: "light" | "dark" | "neutral") => void;
   handleAnswerSelect: (index: number) => void;
 }
@@ -67,7 +69,7 @@ export default function GrammarQuest({
   showFeedback,
   theme,
   themeClasses,
-  resetGame,
+  goToGameDashboard,
   setTheme,
   handleAnswerSelect,
 }: GrammarQuestProps) {
@@ -87,7 +89,7 @@ export default function GrammarQuest({
             <div className="flex items-center space-x-6">
               <Button
                 variant="ghost"
-                onClick={resetGame}
+                onClick={goToGameDashboard}
                 className={themeClasses.button}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
@@ -159,6 +161,24 @@ export default function GrammarQuest({
                   <span className={`font-bold ${themeClasses.text}`}>
                     {gameState.score}
                   </span>
+                </div>
+                <div
+                  className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                >
+                  <Flame
+                    className={`w-4 h-4 ${themeClasses.textSecondary}`}
+                  />
+                  <span className={`font-bold ${themeClasses.text}`}>
+                    {gameState.streak}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  {Array.from({ length: gameState.lives }).map((_, i) => (
+                    <Heart
+                      key={i}
+                      className="w-4 h-4 text-red-500 fill-current"
+                    />
+                  ))}
                 </div>
                 <div
                   className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}

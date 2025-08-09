@@ -16,7 +16,8 @@ export default function WritingPage() {
     setUser,
     writingText,
     setWritingText,
-    resetGame
+    goToGameDashboard,
+    startGame
   } = useApp();
   const router = useRouter();
 
@@ -26,6 +27,18 @@ export default function WritingPage() {
       router.push('/login');
     }
   }, [isAuthenticated, router]);
+
+  // Auto-start writing game if not already playing, but redirect to dashboard if game was ended
+  useEffect(() => {
+    if (isAuthenticated) {
+      if (gameState.currentGame === null && !gameState.isPlaying) {
+        // Game was ended, redirect to dashboard
+        router.push('/dashboard');
+      } else if (gameState.currentGame !== 'writing' && !gameState.isPlaying) {
+        startGame('writing');
+      }
+    }
+  }, [isAuthenticated, gameState.currentGame, gameState.isPlaying, startGame, router]);
 
   const themeClasses = {
     light: {
@@ -79,7 +92,7 @@ export default function WritingPage() {
       theme={theme}
       themeClasses={themeClasses[theme]}
       user={user}
-      resetGame={resetGame}
+      goToGameDashboard={goToGameDashboard}
       setTheme={setTheme}
       setWritingText={setWritingText}
       setGameState={setGameState}

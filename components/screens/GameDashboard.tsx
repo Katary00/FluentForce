@@ -120,10 +120,10 @@ export default function GameDashboard({
     >
       {/* Skip Links for accessibility */}
       <div className="sr-only-focusable">
-        <a href="#main-content" className="skip-link">
+        <a href="#main-content" className="skip-link" tabIndex={1}>
           Skip to main content
         </a>
-        <a href="#game-selection" className="skip-link">
+        <a href="#game-selection" className="skip-link" tabIndex={2}>
           Skip to game selection
         </a>
       </div>
@@ -152,6 +152,7 @@ export default function GameDashboard({
                     ? "text-gray-900"
                     : "text-slate-900"
                 }`}
+                tabIndex={3}
               >
                 FluentForce
               </h1>
@@ -176,6 +177,7 @@ export default function GameDashboard({
                     theme === "light" ? `${themeClasses.cardBg} shadow-sm` : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Light theme"
+                  tabIndex={4}
                 >
                   <Sun className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -189,6 +191,7 @@ export default function GameDashboard({
                       : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Neutral theme"
+                  tabIndex={5}
                 >
                   <Monitor className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -200,6 +203,7 @@ export default function GameDashboard({
                     theme === "dark" ? `${themeClasses.cardBg} shadow-sm` : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Dark theme"
+                  tabIndex={6}
                 >
                   <Moon className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -213,6 +217,7 @@ export default function GameDashboard({
                     ? "text-gray-700"
                     : "text-slate-600"
                 }`}
+                tabIndex={7}
               >
                 <span>Welcome, {user?.name}</span>
               </div>
@@ -224,6 +229,7 @@ export default function GameDashboard({
                     ? "bg-gradient-to-r from-yellow-200 to-orange-200"
                     : "bg-gradient-to-r from-yellow-100 to-orange-100"
                 } px-3 py-1 rounded-full`}
+                tabIndex={8}
               >
                 <Crown
                   className={`w-4 h-4 ${
@@ -250,6 +256,7 @@ export default function GameDashboard({
                     ? "bg-gradient-to-r from-purple-200 to-blue-200"
                     : "bg-gradient-to-r from-purple-100 to-blue-100"
                 } px-3 py-1 rounded-full`}
+                tabIndex={9}
               >
                 <Sparkles
                   className={`w-4 h-4 ${
@@ -278,6 +285,7 @@ export default function GameDashboard({
                     ? "text-gray-700 hover:text-gray-900"
                     : "text-slate-600 hover:text-slate-900"
                 }`}
+                tabIndex={10}
               >
                 Logout
               </Button>
@@ -395,6 +403,7 @@ export default function GameDashboard({
                 ? "text-gray-900"
                 : "text-slate-900"
             }`}
+            tabIndex={11}
           >
             Choose Your Academic Challenge
           </h2>
@@ -440,6 +449,7 @@ export default function GameDashboard({
                     ? "text-purple-900"
                     : "text-purple-900"
                 }`}
+                tabIndex={12}
               >
                 Academic Vocabulary
               </CardTitle>
@@ -451,6 +461,7 @@ export default function GameDashboard({
                     ? "text-purple-800"
                     : "text-purple-700"
                 }`}
+                tabIndex={13}
               >
                 Master complex academic terms and definitions
               </CardDescription>
@@ -475,6 +486,7 @@ export default function GameDashboard({
                 className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white"
                 aria-describedby="vocab-game-description"
                 aria-label="Start Academic Vocabulary Challenge - 5 to 10 minutes, earn 100 to 500 XP"
+                tabIndex={14}
               >
                 <PlayCircle className="w-4 h-4 mr-2" aria-hidden="true" />
                 Start Challenge
@@ -509,6 +521,7 @@ export default function GameDashboard({
                     ? "text-blue-900"
                     : "text-blue-900"
                 }`}
+                tabIndex={15}
               >
                 Listening Lab
               </CardTitle>
@@ -520,6 +533,7 @@ export default function GameDashboard({
                     ? "text-blue-800"
                     : "text-blue-700"
                 }`}
+                tabIndex={16}
               >
                 Decode academic lectures and conferences
               </CardDescription>
@@ -532,11 +546,11 @@ export default function GameDashboard({
                       theme === "dark" ? "text-blue-400" : "text-blue-600"
                     }`}
                   />
-                  <span>10-15 min</span>
+                  <span tabIndex={17}>10-15 min</span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Star className="w-4 h-4 text-yellow-500" />
-                  <span>150-600 XP</span>
+                  <span tabIndex={18}>150-600 XP</span>
                 </div>
               </div>
               <Button
@@ -544,6 +558,7 @@ export default function GameDashboard({
                 className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white"
                 aria-describedby="listening-game-description"
                 aria-label="Enter Listening Lab - 10 to 15 minutes, earn 150 to 600 XP"
+                tabIndex={19}
               >
                 <Volume2 className="w-4 h-4 mr-2" aria-hidden="true" />
                 Enter Lab
@@ -578,6 +593,7 @@ export default function GameDashboard({
                     ? "text-green-900"
                     : "text-green-900"
                 }`}
+                tabIndex={20}
               >
                 Writing Workshop
               </CardTitle>
@@ -589,6 +605,7 @@ export default function GameDashboard({
                     ? "text-green-800"
                     : "text-green-700"
                 }`}
+                tabIndex={21}
               >
                 Craft academic essays and research papers
               </CardDescription>
@@ -601,11 +618,11 @@ export default function GameDashboard({
                       theme === "dark" ? "text-green-400" : "text-green-600"
                     }`}
                   />
-                  <span>20-30 min</span>
+                  <span tabIndex={22}>20-30 min</span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Star className="w-4 h-4 text-yellow-500" />
-                  <span>300-1000 XP</span>
+                  <span tabIndex={23}>300-1000 XP</span>
                 </div>
               </div>
               <Button
@@ -613,6 +630,7 @@ export default function GameDashboard({
                 className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white"
                 aria-describedby="writing-game-description"
                 aria-label="Start Writing Workshop - 20 to 30 minutes, earn 300 to 1000 XP"
+                tabIndex={24}
               >
                 <Lightbulb className="w-4 h-4 mr-2" aria-hidden="true" />
                 Start Writing
@@ -646,6 +664,7 @@ export default function GameDashboard({
                     ? "text-indigo-900"
                     : "text-indigo-900"
                 }`}
+                tabIndex={25}
               >
                 Grammar Quest
               </CardTitle>
@@ -657,6 +676,7 @@ export default function GameDashboard({
                     ? "text-indigo-800"
                     : "text-indigo-700"
                 }`}
+                tabIndex={26}
               >
                 Master advanced grammatical structures
               </CardDescription>
@@ -669,11 +689,11 @@ export default function GameDashboard({
                       theme === "dark" ? "text-indigo-400" : "text-indigo-600"
                     }`}
                   />
-                  <span>8-12 min</span>
+                  <span tabIndex={27}>8-12 min</span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Star className="w-4 h-4 text-yellow-500" />
-                  <span>120-400 XP</span>
+                  <span tabIndex={28}>120-400 XP</span>
                 </div>
               </div>
               <Button
@@ -681,6 +701,7 @@ export default function GameDashboard({
                 className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white"
                 aria-describedby="grammar-game-description"
                 aria-label="Begin Grammar Quest - 8 to 12 minutes, earn 120 to 400 XP"
+                tabIndex={29}
               >
                 <Zap className="w-4 h-4 mr-2" aria-hidden="true" />
                 Begin Quest
@@ -714,6 +735,7 @@ export default function GameDashboard({
                     ? "text-teal-900"
                     : "text-teal-900"
                 }`}
+                tabIndex={30}
               >
                 Reading Expedition
               </CardTitle>
@@ -725,6 +747,7 @@ export default function GameDashboard({
                     ? "text-teal-800"
                     : "text-teal-700"
                 }`}
+                tabIndex={31}
               >
                 Navigate complex academic texts
               </CardDescription>
@@ -737,11 +760,11 @@ export default function GameDashboard({
                       theme === "dark" ? "text-teal-400" : "text-teal-600"
                     }`}
                   />
-                  <span>12-18 min</span>
+                  <span tabIndex={32}>12-18 min</span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Star className="w-4 h-4 text-yellow-500" />
-                  <span>180-700 XP</span>
+                  <span tabIndex={33}>180-700 XP</span>
                 </div>
               </div>
               <Button
@@ -749,6 +772,7 @@ export default function GameDashboard({
                 className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white"
                 aria-describedby="reading-game-description"
                 aria-label="Explore Reading Expedition - 12 to 18 minutes, earn 180 to 700 XP"
+                tabIndex={34}
               >
                 <BookOpen className="w-4 h-4 mr-2" aria-hidden="true" />
                 Explore Texts

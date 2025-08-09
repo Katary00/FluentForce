@@ -15,9 +15,10 @@ export default function ListeningPage() {
     selectedAnswer,
     showFeedback,
     listeningQuestions,
-    resetGame,
+    goToGameDashboard,
     pauseGame,
-    handleAnswerSelect
+    handleAnswerSelect,
+    startGame
   } = useApp();
   const router = useRouter();
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -28,6 +29,18 @@ export default function ListeningPage() {
       router.push('/login');
     }
   }, [isAuthenticated, router]);
+
+  // Auto-start listening game if not already playing, but redirect to dashboard if game was ended
+  useEffect(() => {
+    if (isAuthenticated) {
+      if (gameState.currentGame === null && !gameState.isPlaying) {
+        // Game was ended, redirect to dashboard
+        router.push('/dashboard');
+      } else if (gameState.currentGame !== 'listening' && !gameState.isPlaying) {
+        startGame('listening');
+      }
+    }
+  }, [isAuthenticated, gameState.currentGame, gameState.isPlaying, startGame, router]);
 
   if (!isAuthenticated || !user) {
     return (
@@ -50,7 +63,7 @@ export default function ListeningPage() {
       listeningQuestions={listeningQuestions}
       isAudioPlaying={isAudioPlaying}
       onSetTheme={setTheme}
-      onResetGame={resetGame}
+      onGoToGameDashboard={goToGameDashboard}
       onPauseGame={pauseGame}
       onHandleAnswerSelect={handleAnswerSelect}
       onSetIsAudioPlaying={setIsAudioPlaying}

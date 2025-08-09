@@ -16,10 +16,11 @@ export default function GrammarPage() {
     selectedAnswer,
     showFeedback,
     grammarQuestions,
-    resetGame,
+    goToGameDashboard,
     pauseGame,
     handleAnswerSelect,
-    updateXP
+    updateXP,
+    startGame
   } = useApp();
   const router = useRouter();
 
@@ -29,6 +30,18 @@ export default function GrammarPage() {
       router.push('/login');
     }
   }, [isAuthenticated, router]);
+
+  // Auto-start grammar game if not already playing, but redirect to dashboard if game was ended
+  useEffect(() => {
+    if (isAuthenticated) {
+      if (gameState.currentGame === null && !gameState.isPlaying) {
+        // Game was ended, redirect to dashboard
+        router.push('/dashboard');
+      } else if (gameState.currentGame !== 'grammar' && !gameState.isPlaying) {
+        startGame('grammar');
+      }
+    }
+  }, [isAuthenticated, gameState.currentGame, gameState.isPlaying, startGame, router]);
 
   const themeClasses = {
     light: {
@@ -83,7 +96,7 @@ export default function GrammarPage() {
       showFeedback={showFeedback}
       theme={theme}
       themeClasses={themeClasses[theme]}
-      resetGame={resetGame}
+      goToGameDashboard={goToGameDashboard}
       setTheme={setTheme}
       handleAnswerSelect={handleAnswerSelect}
     />

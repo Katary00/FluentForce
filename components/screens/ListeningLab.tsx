@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { useRef, useState, useEffect } from "react";
 import {
   ArrowLeft,
   Pause,
@@ -13,6 +14,7 @@ import {
   Monitor,
   Star,
   Heart,
+  Flame,
   SkipForward,
   Volume2,
   VolumeX,
@@ -63,7 +65,7 @@ interface ListeningLabProps {
   listeningQuestions: ListeningQuestion[];
   isAudioPlaying: boolean;
   onSetTheme: (theme: Theme) => void;
-  onResetGame: () => void;
+  onGoToGameDashboard: () => void;
   onPauseGame: () => void;
   onHandleAnswerSelect: (index: number) => void;
   onSetIsAudioPlaying: (playing: boolean) => void;
@@ -78,7 +80,7 @@ export default function ListeningLab({
   listeningQuestions,
   isAudioPlaying,
   onSetTheme,
-  onResetGame,
+  onGoToGameDashboard,
   onPauseGame,
   onHandleAnswerSelect,
   onSetIsAudioPlaying,
@@ -121,9 +123,88 @@ export default function ListeningLab({
 
   const themeClasses = getThemeClasses();
 
+  // Audio states and refs
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [audioProgress, setAudioProgress] = useState(0);
+
   // Get current question
   const question = listeningQuestions[gameState.currentQuestion];
   const isCorrect = selectedAnswer === question.correct;
+
+  // Audio functions
+  const togglePlayPause = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+        onSetIsAudioPlaying(false);
+      } else {
+        audioRef.current.play();
+        setIsPlaying(true);
+        onSetIsAudioPlaying(true);
+      }
+    }
+  };
+
+  const toggleMute = () => {
+    if (audioRef.current) {
+      audioRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  const skipForward = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = Math.min(
+        audioRef.current.currentTime + 10,
+        audioRef.current.duration
+      );
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      const current = audioRef.current.currentTime;
+      const total = audioRef.current.duration;
+      setCurrentTime(current);
+      setAudioProgress((current / total) * 100);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);
+    }
+  };
+
+  const handleAudioEnded = () => {
+    setIsPlaying(false);
+    setCurrentTime(0);
+    setAudioProgress(0);
+    onSetIsAudioPlaying(false);
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  // Reset audio when question changes
+  useEffect(() => {
+    setIsPlaying(false);
+    setCurrentTime(0);
+    setAudioProgress(0);
+    onSetIsAudioPlaying(false);
+    
+    if (audioRef.current) {
+      audioRef.current.load();
+    }
+  }, [gameState.currentQuestion, onSetIsAudioPlaying]);
 
   return (
     <div
@@ -138,8 +219,9 @@ export default function ListeningLab({
             <div className="flex items-center space-x-6">
               <Button
                 variant="ghost"
-                onClick={onResetGame}
+                onClick={onGoToGameDashboard}
                 className={themeClasses.button}
+                tabIndex={1}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Exit Lab
@@ -148,6 +230,7 @@ export default function ListeningLab({
                 variant="ghost"
                 onClick={onPauseGame}
                 className={themeClasses.button}
+                tabIndex={2}
               >
                 {gameState.isPaused ? (
                   <Play className="w-4 h-4 mr-2" />
@@ -187,6 +270,7 @@ export default function ListeningLab({
                       : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Light theme"
+                  tabIndex={3}
                 >
                   <Sun className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -200,6 +284,7 @@ export default function ListeningLab({
                       : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Neutral theme"
+                  tabIndex={4}
                 >
                   <Monitor className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -211,6 +296,7 @@ export default function ListeningLab({
                     theme === "dark" ? `${themeClasses.cardBg} shadow-sm` : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Dark theme"
+                  tabIndex={5}
                 >
                   <Moon className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -219,13 +305,25 @@ export default function ListeningLab({
               <div className="flex items-center space-x-6">
                 <div
                   className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                  tabIndex={6}
                 >
                   <Star className={`w-4 h-4 ${themeClasses.textSecondary}`} />
                   <span className={`font-bold ${themeClasses.text}`}>
                     {gameState.score}
                   </span>
                 </div>
-                <div className="flex items-center space-x-1">
+                <div
+                  className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                  tabIndex={7}
+                >
+                  <Flame
+                    className={`w-4 h-4 ${themeClasses.textSecondary}`}
+                  />
+                  <span className={`font-bold ${themeClasses.text}`}>
+                    {gameState.streak}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-1" tabIndex={8}>
                   {Array.from({ length: gameState.lives }).map((_, i) => (
                     <Heart
                       key={i}
@@ -244,6 +342,7 @@ export default function ListeningLab({
         <div className="text-center mb-8">
           <div
             className={`inline-flex items-center space-x-2 ${themeClasses.cardBg} ${themeClasses.border} rounded-full px-4 py-2 mb-4`}
+            tabIndex={9}
           >
             <span className={`text-sm ${themeClasses.textSecondary}`}>
               Audio {gameState.currentQuestion + 1} of{" "}
@@ -266,10 +365,17 @@ export default function ListeningLab({
             <h2
               className={`text-2xl font-bold mb-4 ${themeClasses.text}`}
               id="listening-lecture-title"
+              tabIndex={10}
             >
               Listen to the Academic Lecture
             </h2>
-            <CardDescription className={themeClasses.textSecondary}>
+            <h3
+              className={`text-xl font-semibold mb-2 ${themeClasses.text}`}
+              tabIndex={11}
+            >
+              {question.audioText}
+            </h3>
+            <CardDescription className={themeClasses.textSecondary} tabIndex={12}>
               Listen carefully and answer the comprehension question
             </CardDescription>
           </CardHeader>
@@ -279,6 +385,25 @@ export default function ListeningLab({
             <div
               className={`${themeClasses.cardBg} ${themeClasses.border} rounded-lg p-6 text-center`}
             >
+              {/* Hidden audio element */}
+              <audio
+                ref={audioRef}
+                onTimeUpdate={handleTimeUpdate}
+                onLoadedMetadata={handleLoadedMetadata}
+                onEnded={handleAudioEnded}
+                preload="metadata"
+              >
+                <source 
+                  src={`/audio/question${gameState.currentQuestion + 1}.mp3`} 
+                  type="audio/mpeg" 
+                />
+                <source 
+                  src={`/audio/question${gameState.currentQuestion + 1}.wav`} 
+                  type="audio/wav" 
+                />
+                Your browser does not support the audio element.
+              </audio>
+
               <div
                 className={`w-24 h-24 ${themeClasses.cardBg} rounded-full flex items-center justify-center mx-auto mb-4`}
               >
@@ -286,40 +411,54 @@ export default function ListeningLab({
                   className={`w-12 h-12 ${themeClasses.textSecondary}`}
                 />
               </div>
+              
               <div className="flex items-center justify-center space-x-4 mb-4">
                 <Button
                   variant="ghost"
                   size="lg"
-                  onClick={() => onSetIsAudioPlaying(!isAudioPlaying)}
+                  onClick={togglePlayPause}
                   className={themeClasses.accent}
+                  tabIndex={13}
                 >
-                  {isAudioPlaying ? (
+                  {isPlaying ? (
                     <Pause className="w-6 h-6" />
                   ) : (
                     <Play className="w-6 h-6" />
                   )}
                 </Button>
-                <Button variant="ghost" className={themeClasses.button}>
+                <Button 
+                  variant="ghost" 
+                  className={themeClasses.button}
+                  onClick={skipForward}
+                  tabIndex={14}
+                >
                   <SkipForward className="w-5 h-5" />
                 </Button>
-                <Button variant="ghost" className={themeClasses.button}>
-                  {isAudioPlaying ? (
-                    <Volume2 className="w-5 h-5" />
-                  ) : (
+                <Button 
+                  variant="ghost" 
+                  className={themeClasses.button}
+                  onClick={toggleMute}
+                  tabIndex={15}
+                >
+                  {isMuted ? (
                     <VolumeX className="w-5 h-5" />
+                  ) : (
+                    <Volume2 className="w-5 h-5" />
                   )}
                 </Button>
               </div>
+              
               <div
                 className={`w-full ${themeClasses.border} rounded-full h-2 mb-2`}
               >
                 <div
-                  className="bg-gray-600 h-2 rounded-full"
-                  style={{ width: "45%" }}
+                  className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                  style={{ width: `${audioProgress}%` }}
                 />
               </div>
+              
               <p className={`text-sm ${themeClasses.textSecondary}`}>
-                0:45 / 1:30
+                {formatTime(currentTime)} / {formatTime(duration)}
               </p>
             </div>
 
@@ -330,6 +469,7 @@ export default function ListeningLab({
               <Button
                 variant="ghost"
                 className={themeClasses.button}
+                tabIndex={16}
                 onClick={() => {
                   const transcript = document.getElementById("transcript");
                   if (transcript) {
@@ -354,6 +494,7 @@ export default function ListeningLab({
             <div className="space-y-4">
               <h3
                 className={`text-xl font-semibold text-center ${themeClasses.text}`}
+                tabIndex={17}
               >
                 {question.question}
               </h3>
@@ -386,6 +527,7 @@ export default function ListeningLab({
                       className={buttonClass}
                       onClick={() => onHandleAnswerSelect(index)}
                       disabled={showFeedback}
+                      tabIndex={18 + index}
                     >
                       <div className="flex items-center space-x-3">
                         <div

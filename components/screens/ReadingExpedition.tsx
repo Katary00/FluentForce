@@ -10,6 +10,9 @@ import {
   Monitor,
   Moon,
   Star,
+  Flame,
+  Heart,
+  Timer,
   CheckCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -53,7 +56,7 @@ interface ReadingExpeditionProps {
     button: string;
     accent: string;
   };
-  resetGame: () => void;
+  goToGameDashboard: () => void;
   setTheme: (theme: "light" | "dark" | "neutral") => void;
   handleAnswerSelect: (index: number) => void;
 }
@@ -65,7 +68,7 @@ export default function ReadingExpedition({
   showFeedback,
   theme,
   themeClasses,
-  resetGame,
+  goToGameDashboard,
   setTheme,
   handleAnswerSelect,
 }: ReadingExpeditionProps) {
@@ -85,7 +88,7 @@ export default function ReadingExpedition({
             <div className="flex items-center space-x-6">
               <Button
                 variant="ghost"
-                onClick={resetGame}
+                onClick={goToGameDashboard}
                 className={themeClasses.button}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
@@ -158,6 +161,34 @@ export default function ReadingExpedition({
                   <Star className={`w-4 h-4 ${themeClasses.textSecondary}`} />
                   <span className={`font-bold ${themeClasses.text}`}>
                     {gameState.score}
+                  </span>
+                </div>
+                <div
+                  className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                >
+                  <Flame
+                    className={`w-4 h-4 ${themeClasses.textSecondary}`}
+                  />
+                  <span className={`font-bold ${themeClasses.text}`}>
+                    {gameState.streak}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  {Array.from({ length: gameState.lives }).map((_, i) => (
+                    <Heart
+                      key={i}
+                      className="w-4 h-4 text-red-500 fill-current"
+                    />
+                  ))}
+                </div>
+                <div
+                  className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                >
+                  <Timer
+                    className={`w-4 h-4 ${themeClasses.textSecondary}`}
+                  />
+                  <span className={`font-bold text-lg ${themeClasses.text}`}>
+                    {gameState.timeLeft}s
                   </span>
                 </div>
                 <div className={`text-sm ${themeClasses.textSecondary}`}>

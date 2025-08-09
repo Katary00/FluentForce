@@ -61,7 +61,7 @@ interface VocabularyGameProps {
   showFeedback: boolean;
   vocabularyQuestions: VocabularyQuestion[];
   onSetTheme: (theme: Theme) => void;
-  onResetGame: () => void;
+  onGoToGameDashboard: () => void;
   onPauseGame: () => void;
   onHandleAnswerSelect: (index: number) => void;
 }
@@ -74,7 +74,7 @@ export default function VocabularyGame({
   showFeedback,
   vocabularyQuestions,
   onSetTheme,
-  onResetGame,
+  onGoToGameDashboard,
   onPauseGame,
   onHandleAnswerSelect,
 }: VocabularyGameProps) {
@@ -133,8 +133,9 @@ export default function VocabularyGame({
             <div className="flex items-center space-x-6">
               <Button
                 variant="ghost"
-                onClick={onResetGame}
+                onClick={onGoToGameDashboard}
                 className={themeClasses.button}
+                tabIndex={1}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Exit Game
@@ -143,6 +144,7 @@ export default function VocabularyGame({
                 variant="ghost"
                 onClick={onPauseGame}
                 className={themeClasses.button}
+                tabIndex={2}
               >
                 {gameState.isPaused ? (
                   <Play className="w-4 h-4 mr-2" />
@@ -180,6 +182,7 @@ export default function VocabularyGame({
                       : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Light theme"
+                  tabIndex={3}
                 >
                   <Sun className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -193,6 +196,7 @@ export default function VocabularyGame({
                       : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Neutral theme"
+                  tabIndex={4}
                 >
                   <Monitor className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -204,6 +208,7 @@ export default function VocabularyGame({
                     theme === "dark" ? `${themeClasses.cardBg} shadow-sm` : ""
                   } ${themeClasses.text} hover:${themeClasses.cardBg}`}
                   aria-label="Dark theme"
+                  tabIndex={5}
                 >
                   <Moon className="w-4 h-4" aria-hidden="true" />
                 </Button>
@@ -212,6 +217,9 @@ export default function VocabularyGame({
               <div className="flex items-center space-x-6">
                 <div
                   className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                  tabIndex={6}
+                  role="status"
+                  aria-label={`Current score: ${gameState.score} points`}
                 >
                   <Star className={`w-4 h-4 ${themeClasses.textSecondary}`} />
                   <span className={`font-bold ${themeClasses.text}`}>
@@ -220,6 +228,9 @@ export default function VocabularyGame({
                 </div>
                 <div
                   className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                  tabIndex={7}
+                  role="status"
+                  aria-label={`Current streak: ${gameState.streak} correct answers in a row`}
                 >
                   <Flame
                     className={`w-4 h-4 ${themeClasses.textSecondary}`}
@@ -228,7 +239,12 @@ export default function VocabularyGame({
                     {gameState.streak}
                   </span>
                 </div>
-                <div className="flex items-center space-x-1">
+                <div 
+                  className="flex items-center space-x-1"
+                  tabIndex={8}
+                  role="status"
+                  aria-label={`Lives remaining: ${gameState.lives} out of 3`}
+                >
                   {Array.from({ length: gameState.lives }).map((_, i) => (
                     <Heart
                       key={i}
@@ -238,6 +254,9 @@ export default function VocabularyGame({
                 </div>
                 <div
                   className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                  tabIndex={9}
+                  role="timer"
+                  aria-label={`Time remaining: ${gameState.timeLeft} seconds`}
                 >
                   <Timer
                     className={`w-4 h-4 ${themeClasses.textSecondary}`}
@@ -257,6 +276,9 @@ export default function VocabularyGame({
         <div className="text-center mb-8">
           <div
             className={`inline-flex items-center space-x-2 ${themeClasses.cardBg} ${themeClasses.border} rounded-full px-4 py-2 mb-4`}
+            tabIndex={10}
+            role="status"
+            aria-label={`Question ${gameState.currentQuestion + 1} of ${gameState.totalQuestions}`}
           >
             <span className={`text-sm ${themeClasses.textSecondary}`}>
               Question {gameState.currentQuestion + 1} of{" "}
@@ -293,6 +315,7 @@ export default function VocabularyGame({
                 onClick={onPauseGame}
                 className={themeClasses.accent}
                 aria-label="Resume the vocabulary challenge game"
+                tabIndex={1}
               >
                 <Play className="w-4 h-4 mr-2" />
                 Resume Game
@@ -320,11 +343,16 @@ export default function VocabularyGame({
               <h2
                 className={`text-3xl font-bold mb-4 ${themeClasses.text}`}
                 id="vocabulary-question-word"
+                tabIndex={11}
+                role="heading"
+                aria-level={2}
               >
                 {question.word}
               </h2>
               <CardDescription
                 className={`text-lg ${themeClasses.textSecondary} italic`}
+                tabIndex={12}
+                role="text"
               >
                 "{question.context}"
               </CardDescription>
@@ -381,6 +409,7 @@ export default function VocabularyGame({
                       aria-checked={ariaPressed}
                       aria-label={ariaLabel}
                       data-option={index}
+                      tabIndex={13 + index}
                       aria-describedby={
                         showFeedback ? `feedback-${index}` : undefined
                       }

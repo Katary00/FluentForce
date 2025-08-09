@@ -108,6 +108,7 @@ interface AppContextType {
   resetGame: () => void;
   pauseGame: () => void;
   endGame: () => void;
+  goToGameDashboard: () => void;
   handleAnswerSelect: (answerIndex: number) => void;
   updateXP: (points: number) => void;
 }
@@ -141,6 +142,41 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [showFeedback, setShowFeedback] = useState(false);
   const [writingText, setWritingText] = useState("");
 
+  // Timer Effect - Countdown durante el juego (excepto listening)
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null;
+    
+    if (gameState.isPlaying && !gameState.isPaused && gameState.timeLeft > 0 && gameState.currentGame !== 'listening') {
+      interval = setInterval(() => {
+        setGameState(prev => {
+          if (prev.timeLeft <= 1) {
+            // Tiempo agotado - Game Over, ir al GameDashboard
+            return {
+              ...prev,
+              timeLeft: 0,
+              isPlaying: false,
+              currentGame: null,
+              score: 0,
+              lives: 3,
+              streak: 0,
+              currentQuestion: 0,
+            };
+          }
+          return {
+            ...prev,
+            timeLeft: prev.timeLeft - 1
+          };
+        });
+      }, 1000);
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [gameState.isPlaying, gameState.isPaused, gameState.timeLeft]);
+
   // Game Data
   const vocabularyQuestions: VocabularyQuestion[] = [
     {
@@ -157,17 +193,121 @@ export function AppProvider({ children }: { children: ReactNode }) {
       context: "The researcher explained her methodology before presenting the results."
     },
     {
-      word: "Hypothesis",
-      definition: "A proposed explanation made on the basis of limited evidence",
+      word: "Interdisciplinary",
+      definition: "Relating to more than one branch of knowledge",
       options: [
-        "A proven scientific fact",
-        "A proposed explanation made on the basis of limited evidence",
-        "A type of laboratory equipment",
+        "Focused on a single subject",
+        "Relating to more than one branch of knowledge",
+        "Involving only theoretical concepts",
+        "Limited to practical applications"
+      ],
+      correct: 1,
+      difficulty: "advanced",
+      context: "The interdisciplinary approach combined psychology and neuroscience."
+    },
+    {
+      word: "Cognitive",
+      definition: "Related to the mental processes of perception, memory, judgment, and reasoning",
+      options: [
+        "Related to physical movement",
+        "Related to emotional responses",
+        "Related to the mental processes of perception, memory, judgment, and reasoning",
+        "Related to social interactions"
+      ],
+      correct: 2,
+      difficulty: "intermediate",
+      context: "Cognitive psychology studies how people process information."
+    },
+    {
+      word: "Sustainable",
+      definition: "Able to be maintained at a certain rate or level without depleting natural resources",
+      options: [
+        "Temporary and short-term",
+        "Able to be maintained at a certain rate or level without depleting natural resources",
+        "Requiring constant external support",
+        "Focused only on economic growth"
+      ],
+      correct: 1,
+      difficulty: "intermediate",
+      context: "Sustainable development balances economic growth with environmental protection."
+    },
+    {
+      word: "Phenomenon",
+      definition: "A fact or situation that is observed to exist or happen",
+      options: [
+        "A theoretical concept only",
+        "A fact or situation that is observed to exist or happen",
+        "A research methodology",
         "A statistical measurement"
       ],
       correct: 1,
       difficulty: "intermediate",
-      context: "The scientists tested their hypothesis through controlled experiments."
+      context: "Climate change is a global phenomenon affecting all continents."
+    },
+    {
+      word: "Contemporary",
+      definition: "Belonging to or occurring in the present time",
+      options: [
+        "From ancient times",
+        "Belonging to or occurring in the present time",
+        "Related to the future",
+        "From the medieval period"
+      ],
+      correct: 1,
+      difficulty: "intermediate",
+      context: "Contemporary literature reflects modern social issues."
+    },
+    {
+      word: "Infrastructure",
+      definition: "The basic physical and organizational structures needed for operation of a society",
+      options: [
+        "The basic physical and organizational structures needed for operation of a society",
+        "Only digital and technological systems",
+        "Cultural and artistic elements",
+        "Educational curricula and programs"
+      ],
+      correct: 0,
+      difficulty: "intermediate",
+      context: "Digital infrastructure is crucial for modern economic development."
+    },
+    {
+      word: "Biodiversity",
+      definition: "The variety of plant and animal life in the world or in a particular habitat",
+      options: [
+        "The study of single species",
+        "Only marine life forms",
+        "The variety of plant and animal life in the world or in a particular habitat",
+        "Extinct species documentation"
+      ],
+      correct: 2,
+      difficulty: "intermediate",
+      context: "The Amazon rainforest contains incredible biodiversity."
+    },
+    {
+      word: "Demographic",
+      definition: "Relating to the structure of populations",
+      options: [
+        "Related to geographic features",
+        "Relating to the structure of populations",
+        "Concerning economic policies",
+        "About technological advancement"
+      ],
+      correct: 1,
+      difficulty: "intermediate",
+      context: "Demographic changes affect social security systems."
+    },
+    {
+      word: "Globalization",
+      definition: "The process by which businesses or other organizations develop international influence",
+      options: [
+        "Local community development",
+        "National policy implementation",
+        "The process by which businesses or other organizations develop international influence",
+        "Regional trade agreements only"
+      ],
+      correct: 2,
+      difficulty: "advanced",
+      context: "Globalization has transformed international trade and communication."
     }
   ];
 
@@ -183,7 +323,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         "Laboratory procedures"
       ],
       correct: 0,
-      transcript: "In today's lecture, we will explore the fundamental principles of academic research methodology..."
+      transcript: "In the academic world, research is the foundation on which knowledge is built. For any research to be valid and reliable, it must follow a set of guiding principles. These are known as the principles of research methodology. They outline how to plan, design, conduct, and evaluate a study. The process begins by clearly defining the research problem or question, ensuring it is specific, relevant, and achievable. Next comes selecting an appropriate design — whether qualitative, quantitative, or mixed methods — depending on the study's goals. Another vital principle is the systematic and ethical collection of data, protecting participants' rights and avoiding bias. Once data are collected, results must be interpreted accurately, based on evidence, and with careful acknowledgment of any limitations. Transparency is also essential: the entire research process should be documented in a way that allows others to replicate or verify it. Ultimately, understanding and applying these principles not only improves the quality of a project but also strengthens its credibility within the academic community."
     },
     {
       id: "2",
@@ -196,7 +336,20 @@ export function AppProvider({ children }: { children: ReactNode }) {
         "It increases readership"
       ],
       correct: 1,
-      transcript: "The importance of peer review in academic publishing cannot be overstated..."
+      transcript: "Peer review is a critical process in academic publishing because it ensures that published research meets high standards of quality and rigor. Before an article is accepted for publication, it is evaluated by experts in the same field, known as peers. These reviewers assess the clarity of the research question, the appropriateness of the methodology, the accuracy of the data analysis, and the validity of the conclusions. By having independent experts carefully examine the work, potential errors, weaknesses, or biases can be identified and addressed before the study reaches the public. This process helps maintain the integrity of the academic record, ensuring that findings are trustworthy and reproducible. Peer review also provides constructive feedback to authors, allowing them to refine their arguments, improve their presentation, and strengthen their evidence. While it may take time, the ultimate goal is not speed or cost savings, but rather the protection of scientific credibility. In short, peer review is essential because it acts as a filter that upholds the standards of scholarship, giving readers confidence that the information they are consuming has been thoroughly evaluated by qualified professionals."
+    },
+    {
+      id: "3",
+      audioText: "Academic Writing Structure",
+      question: "What is the primary purpose of a thesis statement in academic writing?",
+      options: [
+        "To summarize the conclusion",
+        "To present the main argument",
+        "To introduce the topic",
+        "To list all references"
+      ],
+      correct: 1,
+      transcript: "In academic writing, the thesis statement is one of the most important elements of an essay or research paper. It serves as the central claim or main argument that the entire work will support. Rather than simply stating a topic, the thesis makes a specific point or position that the author will defend through evidence, reasoning, and analysis. Typically, the thesis statement appears near the end of the introduction, giving readers a clear sense of direction. It tells them exactly what to expect in the rest of the paper, acting as a roadmap for both the writer and the audience. A strong thesis is concise, focused, and arguable — meaning it can be supported but also challenged. For example, instead of saying 'Social media is popular among teenagers,' a thesis might be 'Social media use among teenagers has significant effects on mental health, requiring greater awareness and regulation.' This expresses a clear argument that can be explored and proven. By presenting the main argument upfront, the thesis statement helps maintain clarity and focus throughout the writing process, ensuring that every paragraph works toward supporting that central idea."
     }
   ];
 
@@ -354,6 +507,9 @@ Research indicates that students who engage with AI-enhanced learning platforms 
 
   // Game functions
   const startGame = (gameType: string) => {
+    // Set totalQuestions based on game type
+    const totalQuestions = gameType === 'listening' ? 3 : 10;
+    
     setGameState(prev => ({
       ...prev,
       currentGame: gameType,
@@ -362,11 +518,14 @@ Research indicates that students who engage with AI-enhanced learning platforms 
       currentQuestion: 0,
       score: 0,
       lives: 3,
-      timeLeft: 30
+      timeLeft: 30,
+      totalQuestions: totalQuestions
     }));
   };
 
   const resetGame = () => {
+    const totalQuestions = gameState.currentGame === 'listening' ? 3 : 10;
+    
     setGameState(prev => ({
       ...prev,
       score: 0,
@@ -374,6 +533,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
       streak: 0,
       timeLeft: 30,
       currentQuestion: 0,
+      totalQuestions: totalQuestions,
       isPlaying: false,
       isPaused: false,
     }));
@@ -397,9 +557,113 @@ Research indicates that students who engage with AI-enhanced learning platforms 
     }));
   };
 
+  const goToGameDashboard = () => {
+    setGameState(prev => ({
+      ...prev,
+      currentGame: null,
+      isPlaying: false,
+      isPaused: false,
+      score: 0,
+      lives: 3,
+      streak: 0,
+      timeLeft: 30,
+      currentQuestion: 0,
+    }));
+    setSelectedAnswer(null);
+    setShowFeedback(false);
+  };
+
   const handleAnswerSelect = (answerIndex: number) => {
     setSelectedAnswer(answerIndex);
     setShowFeedback(true);
+
+    // Obtener la pregunta actual según el juego
+    let currentQuestion: any = null;
+    let correctAnswer: number = -1;
+
+    if (gameState.currentGame === 'vocabulary') {
+      currentQuestion = vocabularyQuestions[gameState.currentQuestion];
+      correctAnswer = currentQuestion?.correct || 0;
+    } else if (gameState.currentGame === 'listening') {
+      currentQuestion = listeningQuestions[gameState.currentQuestion];
+      correctAnswer = currentQuestion?.correct || 0;
+    } else if (gameState.currentGame === 'grammar') {
+      currentQuestion = grammarQuestions[gameState.currentQuestion];
+      correctAnswer = currentQuestion?.correct || 0;
+    }
+
+    // Verificar si la respuesta es correcta
+    const isCorrect = answerIndex === correctAnswer;
+    
+    // Capturar valores actuales antes del setTimeout
+    const currentLives = gameState.lives;
+    const currentQuestionIndex = gameState.currentQuestion;
+    const totalQuestions = gameState.totalQuestions;
+    
+    if (isCorrect) {
+      // Incrementar puntuación y racha
+      setGameState(prev => ({
+        ...prev,
+        score: prev.score + 10,
+        streak: prev.streak + 1
+      }));
+      
+      // Actualizar XP del usuario
+      updateXP(10);
+    } else {
+      // Respuesta incorrecta: reducir vidas y reiniciar racha
+      setGameState(prev => ({
+        ...prev,
+        lives: Math.max(0, prev.lives - 1),
+        streak: 0
+      }));
+    }
+
+    // Después de 2 segundos, avanzar a la siguiente pregunta o terminar el juego
+    setTimeout(() => {
+      setShowFeedback(false);
+      setSelectedAnswer(null);
+      
+      // Verificar si quedan vidas (usar valor capturado y restar 1 si fue incorrecta)
+      const livesAfterAnswer = isCorrect ? currentLives : currentLives - 1;
+      
+      if (livesAfterAnswer <= 0) {
+        // Game Over - sin vidas, ir al GameDashboard
+        setGameState(prev => ({
+          ...prev,
+          isPlaying: false,
+          currentGame: null,
+          score: 0,
+          lives: 3,
+          streak: 0,
+          timeLeft: 30,
+          currentQuestion: 0,
+        }));
+        return;
+      }
+
+      // Verificar si es la última pregunta (usar valor capturado)
+      if (currentQuestionIndex >= totalQuestions - 1) {
+        // Juego completado, ir al GameDashboard
+        setGameState(prev => ({
+          ...prev,
+          isPlaying: false,
+          currentGame: null,
+          score: 0,
+          lives: 3,
+          streak: 0,
+          timeLeft: 30,
+          currentQuestion: 0,
+        }));
+        return;
+      }
+
+      // Avanzar a la siguiente pregunta
+      setGameState(prev => ({
+        ...prev,
+        currentQuestion: prev.currentQuestion + 1
+      }));
+    }, 2000);
   };
 
   const updateXP = (points: number) => {
@@ -445,6 +709,7 @@ Research indicates that students who engage with AI-enhanced learning platforms 
     resetGame,
     pauseGame,
     endGame,
+    goToGameDashboard,
     handleAnswerSelect,
     updateXP,
   };

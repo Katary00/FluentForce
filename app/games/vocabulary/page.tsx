@@ -15,9 +15,10 @@ export default function VocabularyPage() {
     selectedAnswer,
     showFeedback,
     vocabularyQuestions,
-    resetGame,
+    goToGameDashboard,
     pauseGame,
-    handleAnswerSelect
+    handleAnswerSelect,
+    startGame
   } = useApp();
   const router = useRouter();
 
@@ -27,6 +28,18 @@ export default function VocabularyPage() {
       router.push('/login');
     }
   }, [isAuthenticated, router]);
+
+  // Auto-start vocabulary game if not already playing, but redirect to dashboard if game was ended
+  useEffect(() => {
+    if (isAuthenticated) {
+      if (gameState.currentGame === null && !gameState.isPlaying) {
+        // Game was ended, redirect to dashboard
+        router.push('/dashboard');
+      } else if (gameState.currentGame !== 'vocabulary' && !gameState.isPlaying) {
+        startGame('vocabulary');
+      }
+    }
+  }, [isAuthenticated, gameState.currentGame, gameState.isPlaying, startGame, router]);
 
   if (!isAuthenticated || !user) {
     return (
@@ -48,7 +61,7 @@ export default function VocabularyPage() {
       showFeedback={showFeedback}
       vocabularyQuestions={vocabularyQuestions}
       onSetTheme={setTheme}
-      onResetGame={resetGame}
+      onGoToGameDashboard={goToGameDashboard}
       onPauseGame={pauseGame}
       onHandleAnswerSelect={handleAnswerSelect}
     />

@@ -9,6 +9,9 @@ import {
   Sun,
   Monitor,
   Moon,
+  Star,
+  Flame,
+  Heart,
   Timer,
   Save,
   RefreshCw,
@@ -46,7 +49,7 @@ interface WritingWorkshopProps {
     accent: string;
   };
   user: any;
-  resetGame: () => void;
+  goToGameDashboard: () => void;
   setTheme: (theme: "light" | "dark" | "neutral") => void;
   setWritingText: (text: string) => void;
   setGameState: React.Dispatch<React.SetStateAction<GameState>>;
@@ -60,7 +63,7 @@ export default function WritingWorkshop({
   theme,
   themeClasses,
   user,
-  resetGame,
+  goToGameDashboard,
   setTheme,
   setWritingText,
   setGameState,
@@ -80,7 +83,7 @@ export default function WritingWorkshop({
             <div className="flex items-center space-x-6">
               <Button
                 variant="ghost"
-                onClick={resetGame}
+                onClick={goToGameDashboard}
                 className={themeClasses.button}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
@@ -147,6 +150,32 @@ export default function WritingWorkshop({
               </div>
 
               <div className="flex items-center space-x-6">
+                <div
+                  className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                >
+                  <Star className={`w-4 h-4 ${themeClasses.textSecondary}`} />
+                  <span className={`font-bold ${themeClasses.text}`}>
+                    {gameState.score}
+                  </span>
+                </div>
+                <div
+                  className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
+                >
+                  <Flame
+                    className={`w-4 h-4 ${themeClasses.textSecondary}`}
+                  />
+                  <span className={`font-bold ${themeClasses.text}`}>
+                    {gameState.streak}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  {Array.from({ length: gameState.lives }).map((_, i) => (
+                    <Heart
+                      key={i}
+                      className="w-4 h-4 text-red-500 fill-current"
+                    />
+                  ))}
+                </div>
                 <div
                   className={`flex items-center space-x-2 ${themeClasses.cardBg} px-3 py-1 rounded-full`}
                 >
